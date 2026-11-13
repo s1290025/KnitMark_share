@@ -345,3 +345,151 @@ footer p{margin:14px 0 0}
   .tablet-screen{grid-template-columns:1fr}
   .tablet-screen aside{display:grid;grid-template-columns:1fr 1fr}
 }
+
+
+/* Motion */
+@keyframes heroFloat{
+  0%,100%{transform:translateY(0) rotate(-.6deg)}
+  50%{transform:translateY(-9px) rotate(.6deg)}
+}
+@keyframes softPop{
+  0%{transform:scale(.96);opacity:0}
+  70%{transform:scale(1.025);opacity:1}
+  100%{transform:scale(1)}
+}
+@keyframes pulsePlus{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.06)}
+}
+@keyframes tinyWiggle{
+  0%,100%{transform:rotate(0)}
+  35%{transform:rotate(-8deg)}
+  70%{transform:rotate(6deg)}
+}
+
+.hero-copy{
+  animation:softPop .7s cubic-bezier(.2,.8,.2,1) both;
+}
+.hero-device .phone-large{
+  animation:heroFloat 5.2s ease-in-out infinite;
+  transform-origin:center;
+}
+.hero-device{
+  position:relative;
+}
+.hero-device:before,
+.hero-device:after{
+  content:"";
+  position:absolute;
+  border:2px solid rgba(201,143,114,.25);
+  border-radius:50%;
+  pointer-events:none;
+}
+.hero-device:before{
+  width:88px;
+  height:88px;
+  left:7%;
+  top:14%;
+  animation:heroFloat 6.4s ease-in-out infinite reverse;
+}
+.hero-device:after{
+  width:42px;
+  height:42px;
+  right:8%;
+  bottom:12%;
+  animation:heroFloat 4.8s ease-in-out infinite;
+}
+.store-button,
+.lang-button,
+.feature-card,
+.phone,
+.tablet{
+  transition:
+    transform .22s ease,
+    box-shadow .22s ease,
+    border-color .22s ease,
+    background-color .22s ease;
+}
+.store-button:hover{
+  transform:translateY(-2px);
+  box-shadow:0 14px 30px rgba(0,0,0,.16);
+}
+.lang-button:hover{
+  transform:translateY(-1px);
+  border-color:#c9b7a8;
+  background:#fff;
+}
+.feature-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 16px 36px rgba(77,60,47,.09);
+  border-color:#d2c1b4;
+}
+.feature-card:hover .feature-demo{
+  transform:scale(1.025);
+}
+.feature-demo{
+  transition:transform .22s ease;
+}
+.count-mini b,
+.foot-mini{
+  animation:pulsePlus 2.8s ease-in-out infinite;
+}
+.undo-mini{
+  animation:tinyWiggle 3.6s ease-in-out infinite;
+}
+.theme-mini i{
+  transition:transform .18s ease;
+}
+.feature-card:hover .theme-mini i:nth-child(odd){transform:translateY(-3px) rotate(-3deg)}
+.feature-card:hover .theme-mini i:nth-child(even){transform:translateY(3px) rotate(3deg)}
+
+.step .phone{
+  transition:transform .25s ease,box-shadow .25s ease,filter .25s ease;
+}
+.step:hover .phone{
+  transform:translateY(-6px) rotate(-1deg);
+  box-shadow:0 25px 50px rgba(69,54,43,.16);
+}
+.step:nth-child(2):hover .phone{transform:translateY(-6px) rotate(1deg)}
+.step:nth-child(3):hover .phone{transform:translateY(-6px) rotate(-.6deg)}
+
+.reveal{
+  opacity:0;
+  transform:translateY(24px);
+  transition:
+    opacity .65s cubic-bezier(.2,.75,.2,1),
+    transform .65s cubic-bezier(.2,.75,.2,1);
+}
+.reveal.is-visible{
+  opacity:1;
+  transform:translateY(0);
+}
+.feature-card.reveal:nth-child(2){transition-delay:.05s}
+.feature-card.reveal:nth-child(3){transition-delay:.1s}
+.feature-card.reveal:nth-child(4){transition-delay:.15s}
+.feature-card.reveal:nth-child(5){transition-delay:.2s}
+.feature-card.reveal:nth-child(6){transition-delay:.25s}
+.feature-card.reveal:nth-child(7){transition-delay:.3s}
+
+.device-showcase.reveal.is-visible .phone-device{
+  animation:softPop .65s .05s both;
+}
+.device-showcase.reveal.is-visible .tablet{
+  animation:softPop .7s .14s both;
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,
+  *:before,
+  *:after{
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+    scroll-behavior:auto !important;
+  }
+  .reveal{
+    opacity:1;
+    transform:none;
+  }
+}
