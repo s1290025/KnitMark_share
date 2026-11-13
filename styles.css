@@ -455,3 +455,84 @@ footer>p{grid-column:1/-1;margin:0}
   footer{grid-template-columns:1fr;padding:28px 20px 42px}
   footer nav{justify-content:flex-start}
 }
+
+
+/* Compact previews */
+.hero{
+  min-height:660px;
+  padding-top:58px;
+  padding-bottom:78px;
+  gap:54px;
+}
+.phone-large{
+  width:270px;
+}
+.phone-large .phone-screen{
+  min-height:525px;
+  padding:31px 13px 14px;
+}
+.phone-large .mock-card{
+  padding:7px 9px;
+  margin:6px 0;
+}
+.phone-large .big-count{
+  padding:7px 0 2px;
+}
+.phone-large .big-count strong{
+  font-size:34px;
+}
+.phone-large .big-plus{
+  height:58px;
+  margin-top:7px;
+  font-size:40px;
+}
+.phone-small{
+  width:178px;
+  border-width:6px;
+  border-radius:29px;
+}
+.phone-small:before{
+  width:52px;
+  height:13px;
+}
+.phone-small .phone-screen{
+  min-height:350px;
+  border-radius:22px;
+  padding:23px 9px 10px;
+}
+.steps{
+  max-width:990px;
+  gap:22px;
+  padding-top:25px;
+  padding-bottom:95px;
+}
+.step-copy{
+  padding-top:16px;
+}
+.feature-visual{
+  min-height:285px;
+}
+.tablet{
+  max-width:780px;
+}
+.tablet-screen{
+  min-height:410px;
+  grid-template-columns:235px 1fr;
+  padding:27px;
+}
+.tablet-counts strong{
+  font-size:66px;
+}
+.tablet-counts button{
+  height:78px;
+}
+@media(max-width:900px){
+  .phone-large{width:250px}
+  .steps{max-width:540px}
+}
+@media(max-width:620px){
+  .phone-large{width:238px}
+  .phone-large .phone-screen{min-height:465px}
+  .phone-small{width:172px}
+  .phone-small .phone-screen{min-height:338px}
+}
