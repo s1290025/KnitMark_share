@@ -10,7 +10,7 @@ function applyLanguage() {
   document.querySelectorAll('[data-ja-href][data-en-href]').forEach((el) => {
     el.href = lang === 'ja' ? el.dataset.jaHref : el.dataset.enHref;
   });
-  if (button) button.textContent = lang === 'ja' ? 'EN' : '日本語';
+  if (button) { button.dataset.lang = lang; button.setAttribute('aria-pressed', lang === 'en' ? 'true' : 'false'); }
   localStorage.setItem('knitmark-lang', lang);
 }
 
