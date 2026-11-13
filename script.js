@@ -10,13 +10,40 @@ function applyLanguage() {
   document.querySelectorAll('[data-ja-href][data-en-href]').forEach((el) => {
     el.href = lang === 'ja' ? el.dataset.jaHref : el.dataset.enHref;
   });
-  button.textContent = lang === 'ja' ? 'EN' : '日本語';
+  if (button) button.textContent = lang === 'ja' ? 'EN' : '日本語';
   localStorage.setItem('knitmark-lang', lang);
 }
 
-button.addEventListener('click', () => {
+button?.addEventListener('click', () => {
   lang = lang === 'ja' ? 'en' : 'ja';
   applyLanguage();
 });
 
 applyLanguage();
+
+const revealTargets = [
+  ...document.querySelectorAll('.section-heading'),
+  ...document.querySelectorAll('.feature-card'),
+  ...document.querySelectorAll('.device-showcase'),
+  ...document.querySelectorAll('.download-section'),
+  ...document.querySelectorAll('footer')
+];
+
+revealTargets.forEach((el) => el.classList.add('reveal'));
+
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      obs.unobserve(entry.target);
+    });
+  }, {
+    threshold: 0.14,
+    rootMargin: '0px 0px -8% 0px'
+  });
+
+  revealTargets.forEach((el) => observer.observe(el));
+} else {
+  revealTargets.forEach((el) => el.classList.add('is-visible'));
+}
