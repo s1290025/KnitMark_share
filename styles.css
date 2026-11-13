@@ -536,3 +536,177 @@ footer>p{grid-column:1/-1;margin:0}
   .phone-small{width:172px}
   .phone-small .phone-screen{min-height:338px}
 }
+
+
+/* Simplified layout */
+.hero{padding-top:44px}
+
+.steps{
+  max-width:none;
+  display:flex;
+  align-items:flex-start;
+  gap:0;
+  overflow-x:auto;
+  overscroll-behavior-x:contain;
+  scroll-snap-type:x mandatory;
+  scroll-padding-inline:calc((100vw - 178px)/2);
+  padding:30px max(28px,calc((100vw - 178px)/2)) 90px;
+  scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
+}
+.steps::-webkit-scrollbar{display:none}
+.step{
+  flex:0 0 228px;
+  min-width:228px;
+  margin-left:-52px;
+  scroll-snap-align:center;
+  position:relative;
+  align-items:center;
+}
+.step:first-child{margin-left:0}
+.step:nth-child(1){z-index:4}
+.step:nth-child(2){z-index:3}
+.step:nth-child(3){z-index:2}
+.step:nth-child(4){z-index:1}
+.step .phone{transition:transform .2s ease,box-shadow .2s ease}
+.step-copy{
+  width:188px;
+  padding-top:14px;
+  text-align:center;
+}
+.step-copy>span{margin-bottom:8px}
+.step-copy h3{font-size:17px;margin-bottom:5px}
+.step-copy p{font-size:12px;line-height:1.55}
+
+.compact-features{
+  max-width:1040px;
+  margin:0 auto;
+  padding:86px 28px 96px;
+  border-top:1px solid var(--line);
+}
+.compact-features-heading{
+  text-align:center;
+  margin-bottom:34px;
+}
+.compact-features-heading h2{
+  margin:0;
+  font-size:clamp(30px,4vw,46px);
+  line-height:1.18;
+  letter-spacing:-.035em;
+}
+.compact-feature-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+.compact-feature{
+  min-height:250px;
+  padding:20px;
+  border:1px solid var(--line);
+  border-radius:22px;
+  background:var(--surface);
+}
+.compact-feature h3{
+  margin:16px 0 7px;
+  font-size:17px;
+  line-height:1.35;
+}
+.compact-feature p{
+  margin:0;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.65;
+}
+.compact-demo{
+  height:118px;
+  border-radius:17px;
+  background:var(--surface-2);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.count-mini{gap:5px}
+.count-mini strong{font-size:42px;line-height:1}
+.count-mini span{font-size:13px}
+.count-mini b{
+  display:grid;
+  place-items:center;
+  width:40px;
+  height:40px;
+  margin-left:8px;
+  border-radius:13px;
+  background:var(--accent);
+  font-size:27px;
+  font-weight:400;
+}
+.undo-mini{
+  font-size:62px;
+  line-height:1;
+}
+.note-mini{
+  align-items:flex-start;
+  flex-direction:column;
+  padding:18px;
+  gap:6px;
+  background:#f2e8df;
+}
+.note-mini small{font-size:10px;font-weight:800}
+.note-mini span{
+  width:100%;
+  padding:10px 12px;
+  border:1px solid #ddd2c8;
+  border-radius:11px;
+  background:#fff;
+  font-size:11px;
+}
+.theme-mini{
+  gap:6px;
+  flex-wrap:wrap;
+  padding:20px;
+}
+.theme-mini i{
+  width:29px;
+  height:29px;
+  border-radius:9px;
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.05);
+}
+.theme-mini i:nth-child(1){background:#e8d3c3}
+.theme-mini i:nth-child(2){background:#e7c9ce}
+.theme-mini i:nth-child(3){background:#dcaeaa}
+.theme-mini i:nth-child(4){background:#c7d6df}
+.theme-mini i:nth-child(5){background:#eadca9}
+.theme-mini i:nth-child(6){background:#6a6561}
+
+.footer-lang{
+  padding:0;
+  border:0;
+  background:none;
+  color:inherit;
+  cursor:pointer;
+  font:inherit;
+}
+
+@media(max-width:900px){
+  .compact-feature-grid{grid-template-columns:repeat(2,1fr)}
+  .step{flex-basis:214px;min-width:214px;margin-left:-44px}
+}
+@media(max-width:620px){
+  .hero{padding-top:34px}
+  .steps{
+    scroll-padding-inline:calc((100vw - 172px)/2);
+    padding-left:calc((100vw - 172px)/2);
+    padding-right:calc((100vw - 172px)/2);
+  }
+  .step{flex-basis:205px;min-width:205px;margin-left:-36px}
+  .step-copy{width:172px}
+  .compact-features{padding:72px 16px 82px}
+  .compact-feature-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .compact-feature{min-height:220px;padding:14px}
+  .compact-demo{height:96px}
+  .compact-feature h3{font-size:15px}
+  .compact-feature p{font-size:11px}
+}
+@media(max-width:430px){
+  .compact-feature-grid{grid-template-columns:1fr}
+  .compact-feature{min-height:0}
+}
