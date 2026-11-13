@@ -10,20 +10,7 @@
   <link rel="apple-touch-icon" href="./assets/icon.png" />
   <link rel="stylesheet" href="./styles.css" />
 </head>
-<body>
-  <header class="site-header">
-    <a class="brand" href="#top" aria-label="Knit Mark home">
-      <img class="brand-icon" src="./assets/icon.png" alt="" />
-      <span>Knit Mark</span>
-    </a>
-    <div class="header-actions">
-      <a class="header-link" href="#how" data-ja="使い方" data-en="How to use">使い方</a>
-      <a class="header-link" href="./support/ja/" data-ja-href="./support/ja/" data-en-href="./support/" data-ja="サポート" data-en="Support">サポート</a>
-      <button class="lang-button" id="langToggle" type="button" aria-label="Switch language">EN</button>
-    </div>
-  </header>
-
-  <main id="top">
+<body><main id="top">
     <section class="hero">
       <div class="hero-copy">
         <div class="app-mark">
@@ -72,7 +59,7 @@
       <p class="section-lead" data-ja="難しい設定はありません。作品を作って、編みながら数えるだけです。" data-en="No complicated setup. Create a project and count as you knit.">難しい設定はありません。作品を作って、編みながら数えるだけです。</p>
     </section>
 
-    <section class="steps">
+    <section class="steps" aria-label="Knit Mark how to use">
       <article class="step">
         <div class="phone phone-small">
           <div class="phone-screen list-screen">
@@ -82,7 +69,7 @@
             <button class="floating-plus">＋</button>
           </div>
         </div>
-        <div class="step-copy"><span>1</span><h3 data-ja="作品を作る" data-en="Create a project">作品を作る</h3><p data-ja="作品ごとにカウントを分けて保存。" data-en="Keep each knitting project separate.">作品ごとにカウントを分けて保存。</p></div>
+        <div class="step-copy"><span>1</span><h3 data-ja="作品を作る" data-en="Create a project">作品を作る</h3><p data-ja="作品ごとにカウントを保存。" data-en="Keep each project separate.">作品ごとにカウントを保存。</p></div>
       </article>
 
       <article class="step">
@@ -94,7 +81,7 @@
             <div class="center-count"><strong>24</strong><span data-ja="目" data-en="Stitches">目</span><button class="big-plus round">＋</button></div>
           </div>
         </div>
-        <div class="step-copy"><span>2</span><h3 data-ja="編んだら＋" data-en="Tap + as you knit">編んだら＋</h3><p data-ja="段と目を、大きなボタンでカウント。" data-en="Count rows and stitches with large buttons.">段と目を、大きなボタンでカウント。</p></div>
+        <div class="step-copy"><span>2</span><h3 data-ja="編んだら＋" data-en="Tap + as you knit">編んだら＋</h3><p data-ja="段と目を大きなボタンで。" data-en="Count with large buttons.">段と目を大きなボタンで。</p></div>
       </article>
 
       <article class="step">
@@ -106,7 +93,7 @@
             <div class="history-row"><small>11:42</small><b>11<span data-ja="段 32目" data-en=" rows · 32 stitches">段 32目</span></b></div>
           </div>
         </div>
-        <div class="step-copy"><span>3</span><h3 data-ja="途中を残す" data-en="Save your place">途中を残す</h3><p data-ja="編みかけの位置を「途中」として記録。" data-en="Save your current place without changing the count.">編みかけの位置を「途中」として記録。</p></div>
+        <div class="step-copy"><span>3</span><h3 data-ja="途中を残す" data-en="Save your place">途中を残す</h3><p data-ja="編みかけの位置を記録。" data-en="Save where you stopped.">編みかけの位置を記録。</p></div>
       </article>
 
       <article class="step">
@@ -115,61 +102,39 @@
             <div class="simple-title"><span>‹</span><strong data-ja="履歴" data-en="History">履歴</strong><span></span></div>
             <div class="history-row"><small>10:18</small><b>9<span data-ja="段 28目" data-en=" rows · 28 stitches">段 28目</span></b></div>
             <div class="history-row"><small>11:05</small><b>10<span data-ja="段 28目" data-en=" rows · 28 stitches">段 28目</span></b></div>
-            <div class="history-row"><small>11:42</small><b>11<span data-ja="段 32目" data-en=" rows · 32 stitches">段 32目</span></b></div>
             <div class="history-row active"><small data-ja="途中" data-en="Progress">途中</small><b>12<span data-ja="段 24目" data-en=" rows · 24 stitches">段 24目</span></b><em>NEW</em></div>
           </div>
         </div>
-        <div class="step-copy"><span>4</span><h3 data-ja="また続きから" data-en="Continue later">また続きから</h3><p data-ja="履歴を見れば、どこまで編んだか分かります。" data-en="Your history shows exactly where to continue.">履歴を見れば、どこまで編んだか分かります。</p></div>
+        <div class="step-copy"><span>4</span><h3 data-ja="また続きから" data-en="Continue later">また続きから</h3><p data-ja="履歴を見て、続きから。" data-en="Check history and continue.">履歴を見て、続きから。</p></div>
       </article>
     </section>
 
-    <section class="feature-section">
-      <div class="feature-copy">
-        <p class="kicker" data-ja="COUNT" data-en="COUNT">COUNT</p>
-        <h2 data-ja="段と目を、別々に。" data-en="Rows and stitches, separately.">段と目を、別々に。</h2>
-        <p data-ja="段だけ、目だけ、両方。編み方に合わせてシンプルに数えられます。" data-en="Track rows, stitches, or both—whatever fits your pattern.">段だけ、目だけ、両方。編み方に合わせてシンプルに数えられます。</p>
+    <section class="compact-features">
+      <div class="compact-features-heading">
+        <p class="kicker" data-ja="FOR KNITTING" data-en="FOR KNITTING">FOR KNITTING</p>
+        <h2 data-ja="編み物のための機能。" data-en="Made for knitting.">編み物のための機能。</h2>
       </div>
-      <div class="feature-visual count-feature">
-        <div class="feature-number"><strong>42</strong><span data-ja="段" data-en="Rows">段</span></div>
-        <button>＋</button>
-        <div class="mini-separator">│→</div>
-      </div>
-    </section>
-
-    <section class="feature-section reverse">
-      <div class="feature-copy">
-        <p class="kicker">UNDO</p>
-        <h2 data-ja="間違えても、戻せる。" data-en="Mistakes are easy to undo.">間違えても、戻せる。</h2>
-        <p data-ja="押し間違えたカウントも履歴も、Undoでまとめて元に戻せます。" data-en="Undo restores counts and history together after a mistap.">押し間違えたカウントも履歴も、Undoでまとめて元に戻せます。</p>
-      </div>
-      <div class="feature-visual undo-feature"><span>↶</span><small data-ja="何度でもUndo" data-en="Undo freely">何度でもUndo</small></div>
-    </section>
-
-    <section class="feature-section">
-      <div class="feature-copy">
-        <p class="kicker" data-ja="NOTE" data-en="NOTE">NOTE</p>
-        <h2 data-ja="作品ごとに、メモ。" data-en="A note for every project.">作品ごとに、メモ。</h2>
-        <p data-ja="次にすること、針の号数、糸の情報などを、その作品と一緒に残せます。" data-en="Keep next steps, needle sizes, yarn details, and more with each project.">次にすること、針の号数、糸の情報などを、その作品と一緒に残せます。</p>
-      </div>
-      <div class="feature-visual note-feature">
-        <small data-ja="メモ" data-en="Note">メモ</small>
-        <p data-ja="袖口まで編む<br>6号針 / 生成り" data-en="Knit to the cuff<br>US 8 needles / Natural">袖口まで編む<br>6号針 / 生成り</p>
-      </div>
-    </section>
-
-    <section class="theme-section">
-      <div>
-        <p class="kicker" data-ja="THEME" data-en="THEME">THEME</p>
-        <h2 data-ja="好きな色で。" data-en="Make it yours.">好きな色で。</h2>
-        <p data-ja="気分や作品に合わせて、6つのテーマカラーから選べます。操作音もON/OFFできます。" data-en="Choose from six color themes and turn tap sounds on or off.">気分や作品に合わせて、6つのテーマカラーから選べます。操作音もON/OFFできます。</p>
-      </div>
-      <div class="theme-swatches" aria-label="Theme colors">
-        <span class="theme beige"><i>＋</i></span>
-        <span class="theme pink"><i>＋</i></span>
-        <span class="theme red"><i>＋</i></span>
-        <span class="theme blue"><i>＋</i></span>
-        <span class="theme yellow"><i>＋</i></span>
-        <span class="theme black"><i>＋</i></span>
+      <div class="compact-feature-grid">
+        <article class="compact-feature">
+          <div class="compact-demo count-mini"><strong>42</strong><span data-ja="段" data-en="Rows">段</span><b>＋</b></div>
+          <h3 data-ja="段と目を、別々に。" data-en="Rows and stitches, separately.">段と目を、別々に。</h3>
+          <p data-ja="段だけ、目だけ、両方に対応。" data-en="Track rows, stitches, or both.">段だけ、目だけ、両方に対応。</p>
+        </article>
+        <article class="compact-feature">
+          <div class="compact-demo undo-mini">↶</div>
+          <h3 data-ja="何度でもUndo" data-en="Undo freely">何度でもUndo</h3>
+          <p data-ja="押し間違えたカウントや履歴を戻せます。" data-en="Restore counts and history after a mistap.">押し間違えたカウントや履歴を戻せます。</p>
+        </article>
+        <article class="compact-feature">
+          <div class="compact-demo note-mini"><small data-ja="メモ" data-en="Note">メモ</small><span data-ja="袖口まで編む" data-en="Knit to the cuff">袖口まで編む</span></div>
+          <h3 data-ja="作品ごとのメモ" data-en="Notes for each project">作品ごとのメモ</h3>
+          <p data-ja="針や糸、次にすることを残せます。" data-en="Keep yarn, needle and next-step notes.">針や糸、次にすることを残せます。</p>
+        </article>
+        <article class="compact-feature">
+          <div class="compact-demo theme-mini"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <h3 data-ja="好きな色で" data-en="Choose your color">好きな色で</h3>
+          <p data-ja="6つのテーマと操作音ON/OFF。" data-en="Six themes and optional tap sounds.">6つのテーマと操作音ON/OFF。</p>
+        </article>
       </div>
     </section>
 
@@ -192,32 +157,7 @@
         </div>
       </div>
     </section>
-
-    <section class="features-list-section">
-      <div>
-        <p class="kicker" data-ja="FEATURES" data-en="FEATURES">FEATURES</p>
-        <h2 data-ja="主な機能" data-en="Features">主な機能</h2>
-      </div>
-      <div class="feature-columns">
-        <ul>
-          <li data-ja="段数・目数カウント" data-en="Row and stitch counting">段数・目数カウント</li>
-          <li data-ja="作品ごとの履歴" data-en="History for each project">作品ごとの履歴</li>
-          <li data-ja="「途中」の記録" data-en="Save Progress markers">「途中」の記録</li>
-          <li data-ja="何度でもUndo" data-en="Multi-step undo">何度でもUndo</li>
-          <li data-ja="作品ごとのメモ" data-en="Notes for each project">作品ごとのメモ</li>
-        </ul>
-        <ul>
-          <li data-ja="最大5作品" data-en="Up to 5 projects">最大5作品</li>
-          <li data-ja="6つのテーマカラー" data-en="6 color themes">6つのテーマカラー</li>
-          <li data-ja="操作音ON / OFF" data-en="Tap sound on / off">操作音ON / OFF</li>
-          <li data-ja="日本語 / English" data-en="Japanese / English">日本語 / English</li>
-          <li data-ja="iPhone / iPad対応" data-en="iPhone / iPad support">iPhone / iPad対応</li>
-        </ul>
-      </div>
-      <p class="local-note" data-ja="アカウント登録不要。作品データと設定は端末内に保存されます。" data-en="No account required. Project data and settings are stored on your device.">アカウント登録不要。作品データと設定は端末内に保存されます。</p>
-    </section>
-
-    <section class="download-section">
+<section class="download-section">
       <img src="./assets/icon.png" alt="" />
       <p class="kicker">KNIT MARK</p>
       <h2 data-ja="今日の続きが、すぐ分かる。" data-en="Know exactly where to continue.">今日の続きが、すぐ分かる。</h2>
@@ -231,6 +171,7 @@
   <footer>
     <div class="footer-brand"><img src="./assets/icon.png" alt="" /><span>Knit Mark</span></div>
     <nav>
+      <button class="footer-lang" id="langToggle" type="button" aria-label="Switch language">EN</button>
       <a href="./support/ja/" data-ja-href="./support/ja/" data-en-href="./support/" data-ja="サポート" data-en="Support">サポート</a>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLScTfycUACW0nB-oMRpTWPwfped8-hMe3VPU91w6Vp2cTNvaTg/viewform?usp=publish-editor" target="_blank" rel="noreferrer" data-ja="お問い合わせ" data-en="Contact">お問い合わせ</a>
       <a href="./ja/privacy.html" data-ja-href="./ja/privacy.html" data-en-href="./privacy.html" data-ja="プライバシーポリシー" data-en="Privacy Policy">プライバシーポリシー</a>
