@@ -1601,3 +1601,10 @@ footer p{margin:14px 0 0}
     display:block;
   }
 }
+
+
+/* Hide iPad status bar without changing iPhone landscape */
+.ipad-shot{
+  --crop-top-px:16px;
+  --crop-bottom-px:3px;
+}
