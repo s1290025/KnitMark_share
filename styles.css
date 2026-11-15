@@ -1254,3 +1254,78 @@ footer p{margin:14px 0 0}
 .ipad-shot{
   border-radius:20px;
 }
+
+
+/* Mobile top-row alignment: logo left, language switch right */
+@media(max-width:560px){
+  .hero{
+    position:relative;
+    padding-top:78px;
+  }
+
+  .app-mark{
+    position:absolute;
+    top:14px;
+    left:18px;
+    z-index:40;
+    justify-content:flex-start;
+  }
+
+  .app-mark img{
+    width:42px;
+    height:42px;
+    border-radius:13px;
+  }
+
+  .app-mark span{
+    font-size:16px;
+  }
+
+  .lang-switch{
+    top:16px;
+    right:18px;
+    z-index:50;
+  }
+
+  .lang-track{
+    width:126px;
+    height:32px;
+  }
+
+  .lang-thumb{
+    width:59px;
+    height:24px;
+    top:3px;
+    left:3px;
+  }
+
+  .lang-switch[data-lang="en"] .lang-thumb{
+    transform:translateX(59px);
+  }
+
+  .lang-option{
+    font-size:9.5px;
+  }
+}
+
+@media(max-width:390px){
+  .app-mark{
+    left:14px;
+  }
+
+  .lang-switch{
+    right:14px;
+  }
+
+  .lang-track{
+    width:116px;
+  }
+
+  .lang-thumb{
+    width:54px;
+  }
+
+  .lang-switch[data-lang="en"] .lang-thumb{
+    transform:translateX(54px);
+  }
+}
