@@ -828,3 +828,99 @@ footer p{margin:14px 0 0}
     transform:translateY(-5px) scale(.985);
   }
 }
+
+
+/* Motion tuning */
+@keyframes gentleDeviceSway{
+  0%,100%{transform:translateY(0) rotate(-0.45deg)}
+  50%{transform:translateY(-5px) rotate(0.45deg)}
+}
+@keyframes gentleDeviceSwayAlt{
+  0%,100%{transform:translateY(-2px) rotate(0.35deg)}
+  50%{transform:translateY(4px) rotate(-0.35deg)}
+}
+
+/* Feature cards stay still, except the foot-friendly card */
+.feature-card,
+.feature-card:hover{
+  transform:none;
+  box-shadow:none;
+  border-color:var(--line);
+}
+.feature-card:hover .feature-demo{
+  transform:none;
+}
+.feature-card:hover .undo-mini{
+  transform:none;
+}
+.feature-card:hover .theme-dot{
+  transform:none !important;
+}
+.foot-card{
+  transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;
+}
+.foot-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 16px 36px rgba(77,60,47,.09);
+  border-color:#d2c1b4;
+}
+.foot-card:hover .feature-demo{
+  transform:scale(1.025);
+}
+
+/* Real progress marker from the app */
+.progress-screen-crop{
+  overflow:hidden;
+  padding:0;
+  background:#f8f3ec;
+}
+.progress-screen-crop img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:50% 31%;
+  transform:scale(1.9);
+  transform-origin:50% 31%;
+}
+
+/* How-to phones gently sway all the time */
+.step-screenshot{
+  animation:gentleDeviceSway 4.2s ease-in-out infinite;
+}
+.step:nth-child(2) .step-screenshot{
+  animation:gentleDeviceSwayAlt 4.7s ease-in-out .35s infinite;
+}
+.step:nth-child(3) .step-screenshot{
+  animation:gentleDeviceSway 5s ease-in-out .7s infinite;
+}
+.step:hover .step-screenshot,
+.step:nth-child(2):hover .step-screenshot,
+.step:nth-child(3):hover .step-screenshot{
+  animation-play-state:paused;
+  transform:translateY(-6px) rotate(-0.8deg);
+}
+
+/* iPhone / iPad gently sway in the device section */
+.device-phone-shot{
+  animation:gentleDeviceSway 4.8s ease-in-out infinite;
+}
+.ipad-shot{
+  animation:gentleDeviceSwayAlt 5.4s ease-in-out .5s infinite;
+}
+.device-phone-shot:hover,
+.ipad-shot:hover{
+  animation-play-state:paused;
+}
+.device-phone-shot:active,
+.ipad-shot:active{
+  animation-play-state:paused;
+}
+
+@media(prefers-reduced-motion:reduce){
+  .step-screenshot,
+  .device-phone-shot,
+  .ipad-shot{
+    animation:none !important;
+  }
+}
