@@ -3,7 +3,9 @@ let lang = localStorage.getItem('knitmark-lang') || 'ja';
 
 function applyLanguage() {
   document.documentElement.lang = lang;
-  document.title = lang === 'ja' ? 'Knit Mark | 編み物カウンター' : 'Knit Mark | Knitting Counter';
+  const titleJa = document.body?.dataset.titleJa || 'Knit Mark | 編み物カウンター';
+  const titleEn = document.body?.dataset.titleEn || 'Knit Mark | Knitting Counter';
+  document.title = lang === 'ja' ? titleJa : titleEn;
   document.querySelectorAll('[data-ja][data-en]').forEach((el) => {
     el.innerHTML = el.dataset[lang];
   });
