@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f7f3ed" />
+  <meta name="description" content="Knit Mark の詳しい使い方。作品の作成、段・目のカウント、履歴、Undo、途中記録などを説明します。" />
+  <title>Knit Mark | 使い方</title>
+  <link rel="icon" type="image/png" href="./assets/icon.png" />
+  <link rel="apple-touch-icon" href="./assets/icon.png" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body data-title-ja="Knit Mark | 使い方" data-title-en="Knit Mark | How to Use">
+  <main class="usage-page">
+    <header class="usage-header">
+      <div class="hero-top">
+        <a class="app-mark" href="./">
+          <img src="./assets/icon.png" alt="" />
+          <span>Knit Mark</span>
+        </a>
+        <button class="lang-switch" id="langToggle" type="button" aria-label="Switch language" aria-pressed="false">
+          <span class="lang-track">
+            <span class="lang-thumb"></span>
+            <span class="lang-option lang-ja">日本語</span>
+            <span class="lang-option lang-en">English</span>
+          </span>
+        </button>
+      </div>
+      <a class="back-link" href="./" data-ja="← トップへ戻る" data-en="← Back to home">← トップへ戻る</a>
+      <p class="kicker">HOW TO USE</p>
+      <h1 data-ja="使い方" data-en="How to use">使い方</h1>
+      <p class="usage-lead"
+         data-ja="作品を作って、編んだ分だけ＋を押す。Knit Markの基本操作を順番に説明します。"
+         data-en="Create a project, then tap + as you knit. Here is a step-by-step guide to Knit Mark.">
+        作品を作って、編んだ分だけ＋を押す。Knit Markの基本操作を順番に説明します。
+      </p>
+    </header>
+
+    <section class="usage-section usage-row">
+      <div class="usage-image screen-crop">
+        <img src="./assets/screenshots/projects.jpeg" data-ja-src="./assets/screenshots/projects.jpeg" data-en-src="./assets/screenshots/projects-eng.jpeg" alt="作品一覧画面" />
+      </div>
+      <div class="usage-copy">
+        <span class="usage-number">1</span>
+        <h2 data-ja="作品を作る" data-en="Create a project">作品を作る</h2>
+        <p data-ja="作品一覧の＋から新しい作品を作ります。作品ごとにカウント、履歴、メモが保存されます。無料版では最大5作品まで登録できます。"
+           data-en="Tap + on the project list to create a project. Counts, history, and notes are saved separately for each project. The free version supports up to five projects.">
+          作品一覧の＋から新しい作品を作ります。作品ごとにカウント、履歴、メモが保存されます。無料版では最大5作品まで登録できます。
+        </p>
+      </div>
+    </section>
+
+    <section class="usage-section usage-row usage-row-reverse">
+      <div class="usage-image screen-crop">
+        <img src="./assets/screenshots/counter.jpeg" data-ja-src="./assets/screenshots/counter.jpeg" data-en-src="./assets/screenshots/counter-eng.jpeg" alt="カウンター画面" />
+      </div>
+      <div class="usage-copy">
+        <span class="usage-number">2</span>
+        <h2 data-ja="段と目を数える" data-en="Count rows and stitches">段と目を数える</h2>
+        <p data-ja="編んだら大きな＋を押します。目の＋は1目ずつ、段の＋は1段ずつ進みます。段を進めると目数は0に戻ります。"
+           data-en="Tap the large + buttons as you knit. Stitch + adds one stitch, and Row + adds one row. When you advance a row, the stitch count resets to zero.">
+          編んだら大きな＋を押します。目の＋は1目ずつ、段の＋は1段ずつ進みます。段を進めると目数は0に戻ります。
+        </p>
+        <div class="usage-note">
+          <strong data-ja="段＋の記録" data-en="When Row + saves history">段＋の記録</strong>
+          <span data-ja="目数が1以上なら、その段を履歴に保存してから次の段へ進みます。目数が0なら、履歴を増やさず段だけ進みます。"
+                data-en="If the stitch count is above zero, the row is added to history before advancing. If it is zero, only the row number advances.">
+            目数が1以上なら、その段を履歴に保存してから次の段へ進みます。目数が0なら、履歴を増やさず段だけ進みます。
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section class="usage-section usage-simple">
+      <div class="usage-copy wide">
+        <span class="usage-number">3</span>
+        <h2 data-ja="区切りをつける" data-en="Finish a section">区切りをつける</h2>
+        <div class="usage-two">
+          <div>
+            <h3>段 │→</h3>
+            <p data-ja="現在の段と目を履歴に残し、段と目の両方を0に戻します。パーツや模様の区切りに使えます。"
+               data-en="Saves the current row and stitch count to history, then resets both to zero. Useful between parts or pattern sections.">
+              現在の段と目を履歴に残し、段と目の両方を0に戻します。パーツや模様の区切りに使えます。
+            </p>
+          </div>
+          <div>
+            <h3>目 │→</h3>
+            <p data-ja="現在の目数を履歴に残し、目だけ0に戻します。段数はそのままです。"
+               data-en="Saves the current stitch count to history and resets only stitches to zero. The row count stays unchanged.">
+              現在の目数を履歴に残し、目だけ0に戻します。段数はそのままです。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="usage-section usage-row">
+      <div class="usage-image screen-crop">
+        <img src="./assets/screenshots/history-progress.jpeg" data-ja-src="./assets/screenshots/history-progress.jpeg" data-en-src="./assets/screenshots/history-progress-eng.jpeg" alt="途中記録と履歴" />
+      </div>
+      <div class="usage-copy">
+        <span class="usage-number">4</span>
+        <h2 data-ja="途中を記録する" data-en="Save your progress">途中を記録する</h2>
+        <p data-ja="一度手を止めたいときは「途中を記録」を押します。今の段と目を変えずに、履歴へ途中の印を残せます。編み進めて正式な履歴が追加されると、途中の印は整理されます。"
+           data-en="When you pause, tap Save Progress. It adds a progress marker to history without changing your current counts. When you continue and a regular history entry is added, the temporary marker is cleaned up.">
+          一度手を止めたいときは「途中を記録」を押します。今の段と目を変えずに、履歴へ途中の印を残せます。編み進めて正式な履歴が追加されると、途中の印は整理されます。
+        </p>
+      </div>
+    </section>
+
+    <section class="usage-section usage-simple">
+      <div class="usage-copy wide">
+        <span class="usage-number">5</span>
+        <h2 data-ja="間違えたらUndo" data-en="Undo mistakes">間違えたらUndo</h2>
+        <p data-ja="↶ を押すと、直前の操作を元に戻せます。カウントだけでなく、履歴が追加された操作も順番に戻せます。"
+           data-en="Tap ↶ to undo the previous action. You can step back through counts as well as actions that added history entries.">
+          ↶ を押すと、直前の操作を元に戻せます。カウントだけでなく、履歴が追加された操作も順番に戻せます。
+        </p>
+      </div>
+    </section>
+
+    <section class="usage-section usage-row usage-row-reverse">
+      <div class="usage-image screen-crop">
+        <img src="./assets/screenshots/history.jpeg" data-ja-src="./assets/screenshots/history.jpeg" data-en-src="./assets/screenshots/history-eng.jpeg" alt="履歴画面" />
+      </div>
+      <div class="usage-copy">
+        <span class="usage-number">6</span>
+        <h2 data-ja="履歴を見る" data-en="Check your history">履歴を見る</h2>
+        <p data-ja="最近の履歴はカウンター画面ですぐ確認できます。全履歴を開くと、これまで記録した段・目・途中の位置をまとめて確認できます。"
+           data-en="Recent history is visible directly on the counter screen. Open full history to review all saved rows, stitches, and progress markers.">
+          最近の履歴はカウンター画面ですぐ確認できます。全履歴を開くと、これまで記録した段・目・途中の位置をまとめて確認できます。
+        </p>
+      </div>
+    </section>
+
+    <section class="usage-section usage-simple">
+      <div class="usage-copy wide">
+        <span class="usage-number">7</span>
+        <h2 data-ja="メモを残す" data-en="Add notes">メモを残す</h2>
+        <p data-ja="作品ごとにメモを残せます。針の号数、毛糸、次に編む場所など、続きから始めるときに必要な情報を書いておけます。"
+           data-en="Each project has its own notes. Save needle size, yarn details, what to knit next, or anything else you need when you return.">
+          作品ごとにメモを残せます。針の号数、毛糸、次に編む場所など、続きから始めるときに必要な情報を書いておけます。
+        </p>
+      </div>
+    </section>
+
+    <section class="usage-section usage-row">
+      <div class="usage-image screen-crop">
+        <img src="./assets/screenshots/settings.jpeg" data-ja-src="./assets/screenshots/settings.jpeg" data-en-src="./assets/screenshots/settings-eng.jpeg" alt="設定画面" />
+      </div>
+      <div class="usage-copy">
+        <span class="usage-number">8</span>
+        <h2 data-ja="テーマと操作音を変える" data-en="Change theme and tap sounds">テーマと操作音を変える</h2>
+        <p data-ja="設定からテーマカラーを変更できます。操作音はON / OFFを切り替えられます。言語も日本語と英語に切り替えられます。"
+           data-en="Choose a theme color in Settings, turn tap sounds on or off, and switch the app between Japanese and English.">
+          設定からテーマカラーを変更できます。操作音はON / OFFを切り替えられます。言語も日本語と英語に切り替えられます。
+        </p>
+      </div>
+    </section>
+
+    <section class="usage-section usage-row usage-row-reverse">
+      <div class="usage-image usage-ipad screen-crop">
+        <img src="./assets/screenshots/ipad-landscape.jpeg" data-ja-src="./assets/screenshots/ipad-landscape.jpeg" data-en-src="./assets/screenshots/ipad-landscape-eng.jpeg" alt="iPad横画面" />
+      </div>
+      <div class="usage-copy">
+        <span class="usage-number">9</span>
+        <h2 data-ja="横向きでも使う" data-en="Use it in landscape">横向きでも使う</h2>
+        <p data-ja="iPhone / iPadは横向きにも対応しています。大きな＋ボタンを押しやすい配置なので、手が編み物でふさがっているときは足で操作する使い方もできます。"
+           data-en="Knit Mark supports landscape mode on iPhone and iPad. The large + buttons are positioned for easy tapping, including with your foot while your hands are busy knitting.">
+          iPhone / iPadは横向きにも対応しています。大きな＋ボタンを押しやすい配置なので、手が編み物でふさがっているときは足で操作する使い方もできます。
+        </p>
+      </div>
+    </section>
+
+    <section class="usage-end">
+      <a class="back-home-button" href="./" data-ja="Knit Mark トップへ戻る" data-en="Back to Knit Mark home">Knit Mark トップへ戻る</a>
+    </section>
+  </main>
+
+  <footer>
+    <nav>
+      <a href="./support/ja/" data-ja-href="./support/ja/" data-en-href="./support/" data-ja="Support" data-en="Support">Support</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScTfycUACW0nB-oMRpTWPwfped8-hMe3VPU91w6Vp2cTNvaTg/viewform?usp=publish-editor" target="_blank" rel="noreferrer" data-ja="Contact" data-en="Contact">Contact</a>
+      <a href="./ja/privacy.html" data-ja-href="./ja/privacy.html" data-en-href="./privacy.html" data-ja="Privacy Policy" data-en="Privacy Policy">Privacy Policy</a>
+    </nav>
+    <p>© 2026 Knit Mark</p>
+  </footer>
+  <script src="./script.js"></script>
+</body>
+</html>
