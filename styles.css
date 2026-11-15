@@ -1092,3 +1092,56 @@ footer p{margin:14px 0 0}
     width:158px;
   }
 }
+
+
+/* Requested refinements */
+.theme-dot{
+  border-radius:50%;
+}
+
+/* Reduce the breathing scale on the foot-friendly plus */
+@keyframes pulsePlusGentle{
+  0%,100%{transform:scale(.985)}
+  50%{transform:scale(1)}
+}
+.foot-mini{
+  animation:pulsePlusGentle 6.6s ease-in-out infinite;
+}
+
+/* Crop both top and bottom bars from screenshots */
+.screen-crop{
+  --crop-top-px:30px;
+  --crop-bottom-px:24px;
+  height:auto;
+}
+.screen-crop img{
+  display:block;
+  width:100%;
+  height:auto;
+  margin-top:calc(-1 * var(--crop-top-px));
+  margin-bottom:calc(-1 * var(--crop-bottom-px));
+}
+.hero-screenshot,
+.step-screenshot,
+.device-phone-shot{
+  --crop-top-px:34px;
+  --crop-bottom-px:28px;
+}
+.ipad-shot{
+  --crop-top-px:24px;
+  --crop-bottom-px:18px;
+}
+
+/* Align the hero phone vertically with the left content in landscape */
+@media(orientation:landscape){
+  .hero{
+    align-items:start;
+  }
+  .hero-device{
+    padding-top:6px;
+    align-self:start;
+  }
+  .hero-screenshot{
+    width:min(230px,23vw);
+  }
+}
