@@ -1192,3 +1192,36 @@ footer p{margin:14px 0 0}
     padding-top:24px;
   }
 }
+
+
+/* Device-like frames */
+.hero-screenshot,
+.step-screenshot,
+.device-phone-shot{
+  border:6px solid #2f2f2f;
+  background:#2f2f2f;
+  box-shadow:
+    0 18px 42px rgba(45,38,32,.18),
+    inset 0 0 0 1px rgba(255,255,255,.08);
+}
+
+.ipad-shot{
+  border:8px solid #2f2f2f;
+  background:#2f2f2f;
+  box-shadow:
+    0 20px 48px rgba(45,38,32,.18),
+    inset 0 0 0 1px rgba(255,255,255,.08);
+}
+
+.hero-screenshot,
+.device-phone-shot{
+  border-radius:28px;
+}
+
+.step-screenshot{
+  border-radius:24px;
+}
+
+.ipad-shot{
+  border-radius:26px;
+}
