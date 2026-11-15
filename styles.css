@@ -1440,3 +1440,164 @@ footer p{margin:14px 0 0}
     right:14px;
   }
 }
+
+
+/* Final mobile hero + screenshot consistency */
+.hero-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+}
+
+.hero-line{
+  display:inline;
+}
+
+/* Slightly clearer illustrated device outline */
+.hero-screenshot,
+.step-screenshot,
+.device-phone-shot,
+.ipad-shot{
+  border:0 !important;
+  outline:2px solid #b9ada1;
+  outline-offset:0;
+  background:#fbf8f4;
+}
+
+/* Match all iPhone crops to the first-page iPhone */
+.hero-screenshot,
+.step-screenshot,
+.device-phone-shot{
+  --crop-top-px:18px;
+  --crop-bottom-px:10px;
+}
+
+/* Show more of the iPad vertically */
+.ipad-shot{
+  --crop-top-px:6px;
+  --crop-bottom-px:3px;
+}
+
+@media(max-width:560px) and (orientation:portrait){
+  .hero{
+    padding:34px 18px 68px;
+    text-align:center;
+  }
+
+  .hero-top{
+    width:100%;
+    margin:0 0 30px;
+    align-items:center;
+  }
+
+  .app-mark{
+    position:static;
+    z-index:auto;
+    justify-content:flex-start;
+    flex:0 1 auto;
+  }
+
+  .app-mark img{
+    width:42px;
+    height:42px;
+    border-radius:13px;
+  }
+
+  .app-mark span{
+    font-size:16px;
+    white-space:nowrap;
+  }
+
+  .lang-switch{
+    position:static;
+    flex:0 0 auto;
+    z-index:auto;
+  }
+
+  .lang-track{
+    width:126px;
+    height:32px;
+  }
+
+  .lang-thumb{
+    width:59px;
+    height:24px;
+    top:3px;
+    left:3px;
+  }
+
+  .lang-switch[data-lang="en"] .lang-thumb{
+    transform:translateX(59px);
+  }
+
+  .lang-option{
+    font-size:9.5px;
+  }
+
+  .hero-title{
+    margin:0 0 20px;
+    font-size:38px;
+    line-height:1.14;
+    letter-spacing:-.045em;
+  }
+
+  .hero-title .hero-line{
+    display:block;
+  }
+
+  .hero-title .hero-line-2{
+    white-space:nowrap;
+  }
+
+  .hero-title .hero-line-2a,
+  .hero-title .hero-line-2b{
+    display:inline;
+  }
+
+  .hero-note{
+    margin-inline:auto;
+  }
+
+  .hero-actions{
+    justify-content:center;
+  }
+}
+
+@media(max-width:390px) and (orientation:portrait){
+  .hero{
+    padding-inline:14px;
+  }
+
+  .hero-top{
+    gap:10px;
+  }
+
+  .hero-title{
+    font-size:35px;
+  }
+
+  .lang-track{
+    width:116px;
+  }
+
+  .lang-thumb{
+    width:54px;
+  }
+
+  .lang-switch[data-lang="en"] .lang-thumb{
+    transform:translateX(54px);
+  }
+}
+
+/* Landscape keeps the requested four-line title */
+@media(orientation:landscape){
+  .hero-title .hero-line{
+    display:block;
+  }
+
+  .hero-title .hero-line-2a,
+  .hero-title .hero-line-2b{
+    display:block;
+  }
+}
