@@ -1171,3 +1171,24 @@ footer p{margin:14px 0 0}
     padding-top:24px;
   }
 }
+
+
+/* Latest landscape copy and screenshot visibility */
+.hero-screenshot,
+.step-screenshot,
+.device-phone-shot{
+  --crop-top-px:18px;
+  --crop-bottom-px:10px;
+}
+.ipad-shot{
+  --crop-top-px:12px;
+  --crop-bottom-px:6px;
+}
+@media(orientation:landscape){
+  .hero-title span{
+    display:block;
+  }
+  .hero-device{
+    padding-top:24px;
+  }
+}
