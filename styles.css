@@ -1354,3 +1354,89 @@ footer p{margin:14px 0 0}
 .ipad-shot{
   border-radius:20px;
 }
+
+
+/* Mobile portrait hero layout and consistent screenshot framing */
+.hero-screenshot{
+  --crop-top-px:18px;
+  --crop-bottom-px:10px;
+}
+.step-screenshot{
+  --crop-top-px:10px;
+  --crop-bottom-px:5px;
+}
+.device-phone-shot{
+  --crop-top-px:11px;
+  --crop-bottom-px:6px;
+}
+.ipad-shot{
+  --crop-top-px:8px;
+  --crop-bottom-px:4px;
+}
+
+/* Slightly clearer illustrated device outline, without covering the image */
+.hero-screenshot,
+.step-screenshot,
+.device-phone-shot,
+.ipad-shot{
+  outline:2px solid #b9aa9a;
+  outline-offset:0;
+}
+
+/* Portrait phone: brand left, language switch right, title safely below */
+@media(max-width:560px) and (orientation:portrait){
+  .hero{
+    padding-top:112px;
+  }
+
+  .app-mark{
+    top:18px;
+    left:18px;
+  }
+
+  .lang-switch{
+    top:20px;
+    right:18px;
+  }
+
+  .hero-title{
+    margin-top:0;
+    font-size:36px;
+    line-height:1.16;
+    letter-spacing:-.04em;
+  }
+
+  .hero-title span:nth-child(1){
+    display:block;
+    white-space:nowrap;
+  }
+
+  .hero-title span:nth-child(2),
+  .hero-title span:nth-child(3){
+    display:inline;
+    white-space:nowrap;
+  }
+
+  .hero-title span:nth-child(4){
+    display:block;
+    white-space:nowrap;
+  }
+}
+
+@media(max-width:390px) and (orientation:portrait){
+  .hero{
+    padding-top:106px;
+  }
+
+  .hero-title{
+    font-size:34px;
+  }
+
+  .app-mark{
+    left:14px;
+  }
+
+  .lang-switch{
+    right:14px;
+  }
+}
