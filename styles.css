@@ -1608,3 +1608,18 @@ footer p{margin:14px 0 0}
   --crop-top-px:16px;
   --crop-bottom-px:3px;
 }
+
+
+/* Pre-cropped screenshots: show the complete supplied image */
+.screen-crop{
+  --crop-top:0 !important;
+  --crop-top-px:0 !important;
+  --crop-bottom-px:0 !important;
+}
+.screen-crop img{
+  width:100%;
+  height:auto;
+  margin:0 !important;
+  object-fit:contain;
+  object-position:center;
+}
