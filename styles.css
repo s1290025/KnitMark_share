@@ -924,3 +924,76 @@ footer p{margin:14px 0 0}
     animation:none !important;
   }
 }
+
+
+/* Final motion and feature tuning */
+.reveal,
+.reveal.is-visible{
+  opacity:1 !important;
+  transform:none !important;
+  transition:none !important;
+}
+
+/* Use the real app's rounded-square theme swatches */
+.theme-dot{
+  border-radius:9px;
+}
+
+/* Progress button, matching the app UI */
+.progress-button-demo{
+  background:#f8f3ec;
+}
+.progress-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:150px;
+  min-height:48px;
+  padding:0 24px;
+  border:2px solid #c9a77f;
+  border-radius:999px;
+  background:#eee3d5;
+  color:#2b241e;
+  font-size:15px;
+  font-weight:700;
+}
+
+/* Keep the feature cards still. Only the foot-friendly plus breathes slowly. */
+.foot-card{
+  transition:transform .5s ease,box-shadow .5s ease,border-color .5s ease;
+}
+.foot-card:hover{
+  transform:translateY(-3px);
+}
+.foot-mini{
+  animation:pulsePlus 5.8s ease-in-out infinite;
+}
+.count-mini b{
+  animation:none;
+}
+
+/* Keep device motion visible from the start, without scroll-triggered entrance */
+.step-screenshot{
+  animation:heroFloat 5.4s ease-in-out infinite;
+}
+.step:nth-child(2) .step-screenshot{
+  animation:heroFloat 5.9s ease-in-out .6s infinite reverse;
+}
+.step:nth-child(3) .step-screenshot{
+  animation:heroFloat 6.3s ease-in-out 1.1s infinite;
+}
+.device-phone-shot{
+  animation:heroFloat 5.8s ease-in-out infinite;
+}
+.ipad-shot{
+  animation:heroFloat 6.6s ease-in-out .7s infinite reverse;
+}
+
+@media(prefers-reduced-motion:reduce){
+  .step-screenshot,
+  .device-phone-shot,
+  .ipad-shot,
+  .foot-mini{
+    animation:none !important;
+  }
+}
