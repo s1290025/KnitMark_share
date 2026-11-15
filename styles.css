@@ -1145,3 +1145,29 @@ footer p{margin:14px 0 0}
     width:min(230px,23vw);
   }
 }
+
+
+/* Latest visual adjustments */
+/* Restore the previous, slightly stronger foot-button breathing */
+.foot-mini{
+  animation:pulsePlus 5.8s ease-in-out infinite;
+}
+
+/* Keep more of the screenshots visible while still hiding status/home bars */
+.hero-screenshot,
+.step-screenshot,
+.device-phone-shot{
+  --crop-top-px:24px;
+  --crop-bottom-px:18px;
+}
+.ipad-shot{
+  --crop-top-px:16px;
+  --crop-bottom-px:10px;
+}
+
+/* Lower the first-page phone a little in landscape */
+@media(orientation:landscape){
+  .hero-device{
+    padding-top:24px;
+  }
+}
