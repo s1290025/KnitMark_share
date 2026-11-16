@@ -1883,3 +1883,17 @@ footer p{margin:14px 0 0}
 .usage-demo-history-line{box-sizing:border-box;line-height:17px;white-space:nowrap;padding:2px 0;border-bottom:1px solid #EEE3D5;font-variant-numeric:tabular-nums}
 
 .usage-buttons .usage-copy p{font-size:clamp(17px,2.5vw,25px);line-height:1.8;color:#2B241E;font-weight:500;overflow-wrap:anywhere}
+
+.usage-button-pair{max-width:760px;margin:auto;padding:32px 0 48px;display:grid;gap:12px}
+.usage-button-step{display:grid;grid-template-columns:minmax(0,190px) minmax(0,240px);gap:20px;align-items:center;justify-content:start}
+.usage-button-step-reverse{grid-template-columns:minmax(0,240px) minmax(0,190px);justify-content:end}
+.usage-button-step .usage-copy p{font-size:clamp(16px,2vw,21px);line-height:1.75;color:#2B241E;font-weight:500}
+.usage-button-pair .usage-counter-demo{width:100%;padding:10px 12px 14px;gap:6px;border-radius:18px}
+.usage-demo-top{display:flex;justify-content:flex-end}
+.usage-demo-top button{width:30px;height:30px;border-radius:50%;border:1.5px solid #C9A77F;background:#EEE3D5;font-size:21px}
+.usage-button-pair .usage-demo-value strong{font-size:36px}
+.usage-button-pair .usage-demo-value span{font-size:14px}
+.usage-button-pair .usage-demo-count button{height:54px;font-size:34px;border-radius:20px}
+.usage-button-pair .usage-demo-count:last-child button{height:60px;border-radius:999px}
+.usage-button-pair .usage-demo-history{height:88px}
+@media(max-width:560px){.usage-button-step{grid-template-columns:minmax(0,145px) minmax(0,1fr);gap:12px}.usage-button-step-reverse{grid-template-columns:minmax(0,1fr) minmax(0,145px)}.usage-button-pair{gap:18px}.usage-button-pair .usage-counter-demo{padding:8px}.usage-button-pair .usage-copy p{font-size:16px}}

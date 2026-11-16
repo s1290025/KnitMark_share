@@ -28,17 +28,19 @@
       </div>
     </header>
 
-    <section class="usage-section usage-row usage-buttons">
-      <div class="usage-counter-demo" aria-label="Counter demonstration">
-
-        <div class="usage-demo-history"><span data-ja="履歴" data-en="History">履歴</span><div data-demo-history></div></div>
-        <div class="usage-demo-count"><div class="usage-demo-value"><strong data-demo-value="row">0</strong><span data-ja="段" data-en="Rows">段</span></div><button type="button" data-demo-action="row" aria-label="Add row">＋</button></div>
-        <div class="usage-demo-divider"></div>
-        <div class="usage-demo-count"><div class="usage-demo-value"><strong data-demo-value="stitch">0</strong><span data-ja="目" data-en="Stitches">目</span></div><button type="button" data-demo-action="stitch" aria-label="Add stitch">＋</button></div>
-      </div>
-      <div class="usage-copy">
-        <p data-ja="＋ボタンを押すと、段数や目数が増えます。" data-en="Tap + to increase the row or stitch count.">＋ボタンを押すと、段数や目数が増えます。</p>
-      </div>
+    <section class="usage-section usage-button-pair">
+      <div class="usage-button-step"><div class="usage-counter-demo" data-demo-mode="forward" aria-label="Counter demonstration">
+<div class="usage-demo-top"><button type="button" data-demo-action="undo" aria-label="Undo">↶</button></div>
+<div class="usage-demo-history"><span data-ja="履歴" data-en="History">履歴</span><div data-demo-history></div></div>
+<div class="usage-demo-count"><div class="usage-demo-value"><strong data-demo-value="row">0</strong><span data-ja="段" data-en="Rows">段</span></div><button type="button" data-demo-action="row" aria-label="Add row">＋</button></div>
+<div class="usage-demo-divider"></div><div class="usage-demo-count"><div class="usage-demo-value"><strong data-demo-value="stitch">0</strong><span data-ja="目" data-en="Stitches">目</span></div><button type="button" data-demo-action="stitch" aria-label="Add stitch">＋</button></div>
+</div><div class="usage-copy"><p data-ja="＋ボタンを押すと、段数や目数が増えます。" data-en="Tap + to increase the row or stitch count.">＋ボタンを押すと、段数や目数が増えます。</p></div></div>
+      <div class="usage-button-step usage-button-step-reverse"><div class="usage-copy"><p data-ja="↶ ボタンを押すと、ひとつ前の状態に戻ります。" data-en="Tap ↶ to undo the last action.">↶ ボタンを押すと、ひとつ前の状態に戻ります。</p></div><div class="usage-counter-demo" data-demo-mode="undo" aria-label="Counter demonstration">
+<div class="usage-demo-top"><button type="button" data-demo-action="undo" aria-label="Undo">↶</button></div>
+<div class="usage-demo-history"><span data-ja="履歴" data-en="History">履歴</span><div data-demo-history></div></div>
+<div class="usage-demo-count"><div class="usage-demo-value"><strong data-demo-value="row">2</strong><span data-ja="段" data-en="Rows">段</span></div><button type="button" data-demo-action="row" aria-label="Add row">＋</button></div>
+<div class="usage-demo-divider"></div><div class="usage-demo-count"><div class="usage-demo-value"><strong data-demo-value="stitch">3</strong><span data-ja="目" data-en="Stitches">目</span></div><button type="button" data-demo-action="stitch" aria-label="Add stitch">＋</button></div>
+</div></div>
     </section>
 
     <section class="usage-section usage-row">
