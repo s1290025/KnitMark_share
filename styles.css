@@ -2005,5 +2005,5 @@ footer p{margin:14px 0 0}
 
 /* Fine-tune the home preview placement without changing its animation. */
 .hero .hero-live{top:24px}
-.hero-live .hero-chart{transform:translateX(-18px)}
-@media(max-width:760px){.hero .hero-live{top:14px}.hero-live .hero-chart{transform:translateX(-8px)}}
+.hero-live .hero-chart{transform:translate(-18px,24px)}
+@media(max-width:760px){.hero .hero-live{top:14px}.hero-live .hero-chart{transform:translate(-8px,16px)}}
