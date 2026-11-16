@@ -82,7 +82,7 @@ document.querySelectorAll('.usage-counter-demo[data-demo-mode="forward"],.usage-
 })();
 
 document.querySelectorAll('[data-demo-mode="marks"],[data-demo-mode="progress"]').forEach(demo=>{
- const marks=demo.dataset.demoMode==='marks', sequence=marks?['stitch','stitch','stitch','mark-stitch','stitch','stitch','mark-stitch','row','row','row','mark-row']:['row','stitch','stitch','progress','stitch','stitch','row'];
+ const marks=demo.dataset.demoMode==='marks', sequence=marks?['stitch','stitch','stitch','mark-stitch','row','row','row','mark-row','row','stitch','stitch','stitch','mark-row']:['row','stitch','stitch','stitch','progress','stitch','stitch','row','stitch','stitch','progress','stitch','stitch','stitch','row'];
  const buttons=[...demo.querySelectorAll('[data-demo-action]')],row=demo.querySelector('[data-demo-value="row"]'),stitch=demo.querySelector('[data-demo-value="stitch"]'),history=demo.querySelector('[data-demo-history]');
  let r=0,s=0,entries=[],stack=[],i=0,timer,visible=false,touched=false;const reduced=matchMedia('(prefers-reduced-motion: reduce)');
  let lastKey='';
