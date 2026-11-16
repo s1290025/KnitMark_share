@@ -27,7 +27,7 @@ document.querySelectorAll('.usage-counter-demo:not([data-demo-mode="pattern"])')
  // Regular concentric rounds; paired crosses share a single V-shaped base.
  for(let r=0;r<3;r++){
  const n=sizes[r], step=2*Math.PI/n;
- const offset=r===0?0:r===1?-step/2:-step;
+ const offset=0;
  for(let i=0;i<n;){
  const inc=r===1||(r===2&&i%3===1);
  if(inc){
@@ -43,9 +43,9 @@ document.querySelectorAll('.usage-counter-demo:not([data-demo-mode="pattern"])')
  const buttons=[...demo.querySelectorAll('[data-demo-action]')], row=demo.querySelector('[data-demo-value="row"]'), stitch=demo.querySelector('[data-demo-value="stitch"]'), history=demo.querySelector('[data-demo-history]');
  let r=0,s=0,done=0,entries=[],stack=[],timer,visible=false,touched=false;
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
- function render(){row.textContent=r;stitch.textContent=s;marks.forEach((m,i)=>{m.setAttribute('class','pattern-mark '+(i<done?'is-done':i===done&&r>0&&s<sizes[r-1]?'is-current':''));});groups.forEach(g=>g.join.setAttribute('stroke',done>g.last?'#bcb6af':done>=g.first&&done<=g.last&&r>0&&s<sizes[r-1]?'#c83f3f':'#302c29'));const en=document.documentElement.lang==='en';history.replaceChildren(...entries.slice(-2).map(e=>{const d=document.createElement('div');d.className='usage-demo-history-line';d.textContent=en?e[0]+' rows · '+e[1]+' stitches':e[0]+'段 '+e[1]+'目';return d;}));}
+ function render(){row.textContent=r;stitch.textContent=s;marks.forEach((m,i)=>{m.setAttribute('class','pattern-mark '+(r>0&&s>0&&i===done-1?'is-current':i<done?'is-done':''));});groups.forEach(g=>g.join.setAttribute('stroke',r>0&&s>0&&done-1>=g.first&&done-1<=g.last?'#c83f3f':done>g.last?'#bcb6af':'#302c29'));const en=document.documentElement.lang==='en';history.replaceChildren(...entries.slice(-2).map(e=>{const d=document.createElement('div');d.className='usage-demo-history-line';d.textContent=en?e[0]+' rows · '+e[1]+' stitches':e[0]+'段 '+e[1]+'目';return d;}));}
  function act(a){if(a==='undo'){if(stack.length){[r,s,done,entries]=stack.pop();}}else{if(a==='row'&&(r>=3||(r>0&&s!==sizes[r-1])))return;if(a==='stitch'&&(!r||s>=sizes[r-1]))return;stack.push([r,s,done,entries]);if(a==='row'){if(r)entries=[...entries,[r,s]];r++;s=0;}else{s++;done++;}}const b=buttons.find(x=>x.dataset.demoAction===a);b.classList.add('is-pressed');setTimeout(()=>b.classList.remove('is-pressed'),220);render();}
- function tick(){if(!visible||touched||reduced.matches)return;if(r===3&&s===18){r=0;s=0;done=0;entries=[];stack=[];render();}else if(!r||s===sizes[r-1])act('row');else act('stitch');timer=setTimeout(tick,r===3&&s===18?2200:700);}
+ function tick(){if(!visible||touched||reduced.matches)return;if(r===3&&s===18){r=0;s=0;done=0;entries=[];stack=[];render();}else if(!r||s===sizes[r-1])act('row');else act('stitch');timer=setTimeout(tick,r===3&&s===18?2200:s===0?1100:s===sizes[r-1]?1400:700);}
  buttons.forEach(b=>b.addEventListener('click',()=>{touched=true;clearTimeout(timer);act(b.dataset.demoAction);}));
  new MutationObserver(render).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
  if('IntersectionObserver' in window)new IntersectionObserver(([e])=>{visible=e.isIntersecting;clearTimeout(timer);if(visible&&!touched&&!reduced.matches)timer=setTimeout(tick,700);},{threshold:.3}).observe(demo);
