@@ -1859,15 +1859,22 @@ footer p{margin:14px 0 0}
 }
 
 /* Interactive counter guide */
-.usage-counter-demo{width:min(100%,280px);margin:auto;padding:18px;border:1px solid var(--line);border-radius:24px;background:var(--surface);box-shadow:0 12px 30px rgba(69,54,43,.08);display:grid;gap:12px}
+.usage-header{padding-bottom:22px}
+.usage-header .hero-top{margin-bottom:0}
+.usage-buttons{grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:64px}
+.usage-counter-demo{box-sizing:border-box;width:min(100%,280px);margin:auto;padding:14px 18px 22px;border-radius:24px;background:#F8F3EC;color:#2B241E;display:grid;gap:12px;border:1px solid #DED0C0}
 .usage-demo-top{display:flex;justify-content:flex-end}
-.usage-counter-demo button{font:inherit;cursor:pointer;border:1px solid #cdbdaf;border-radius:14px;background:#e9ded2;color:#44382f;font-weight:700;transition:transform .18s,background .18s;touch-action:manipulation}
-.usage-demo-top button{width:48px;height:42px;font-size:26px}
-.usage-demo-count{display:grid;grid-template-columns:1fr 1fr 64px;align-items:center;gap:8px;text-align:center;padding:12px 8px;background:var(--surface-2);border-radius:16px}
-.usage-demo-count span{font-size:13px;color:var(--muted)}
-.usage-demo-count strong{font-size:36px;font-variant-numeric:tabular-nums;line-height:1.2}
-.usage-demo-count button{height:64px;font-size:34px}
-.usage-counter-demo button.is-pressed,.usage-counter-demo button:active{transform:scale(.9);background:#d5c0ac}
-.usage-demo-count strong.is-changing{animation:usageCountPop .32s ease}
+.usage-counter-demo button{font:inherit;cursor:pointer;color:#2B241E;transition:transform .18s,opacity .18s;touch-action:manipulation}
+.usage-demo-top button{width:40px;height:40px;border-radius:50%;border:1.5px solid #C9A77F;background:#EEE3D5;font-size:25px}
+.usage-demo-count{display:grid;justify-items:center;gap:8px}
+.usage-demo-value{display:flex;align-items:baseline;justify-content:center;gap:6px}
+.usage-demo-value span{font-size:20px}
+.usage-demo-value strong{font-size:54px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.1}
+.usage-demo-count button{width:82%;height:88px;border:0;border-radius:32px;background:#C9A77F;font-size:52px;font-weight:500;line-height:1}
+.usage-demo-count:last-child button{width:64%;height:96px;border-radius:999px}
+.usage-demo-divider{height:1px;background:#DED0C0;margin:3px 0}
+.usage-counter-demo button.is-pressed,.usage-counter-demo button:active{transform:scale(.94);opacity:.65}
+.usage-demo-value strong.is-changing{animation:usageCountPop .32s ease}
 @keyframes usageCountPop{0%{transform:scale(.85);opacity:.55}60%{transform:scale(1.15)}100%{transform:scale(1);opacity:1}}
-@media(prefers-reduced-motion:reduce){.usage-counter-demo button{transition:none}.usage-demo-count strong.is-changing{animation:none}}
+@media(max-width:760px){.usage-buttons{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;text-align:left}.usage-buttons .usage-copy h2{font-size:clamp(20px,4vw,32px)}.usage-counter-demo{padding:10px;gap:8px}.usage-demo-value strong{font-size:42px}.usage-demo-value span{font-size:15px}.usage-demo-count button{height:64px;font-size:40px}.usage-demo-count:last-child button{height:72px}}
+@media(prefers-reduced-motion:reduce){.usage-counter-demo button{transition:none}.usage-demo-value strong.is-changing{animation:none}}

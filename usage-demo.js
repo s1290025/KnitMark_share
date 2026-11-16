@@ -30,7 +30,7 @@
     if (!touched) { touched = true; clearTimeout(timer); }
     act(button.dataset.demoAction);
   }));
-  const sequence = ['stitch','stitch','stitch','row','stitch','undo','undo'];
+  const sequence = ['row','stitch','stitch','stitch','row','stitch','stitch','stitch','undo','undo'];
   let i = 0, visible = false;
   function tick() {
     if (touched || !visible || reduced.matches) return;
