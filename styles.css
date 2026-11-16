@@ -1937,3 +1937,9 @@ footer p{margin:14px 0 0}
 .usage-button-step-reverse>.usage-copy{justify-self:end}
 .usage-button-step .usage-copy p{font-family:"Hiragino Maru Gothic ProN","Hiragino Sans","Yu Gothic",sans-serif;font-size:clamp(16px,1.8vw,18px);font-weight:400;color:#51453c;line-height:1.85}
 @media(max-width:600px){.usage-button-pair{grid-template-columns:repeat(2,minmax(0,1fr));padding-inline:6px;column-gap:14px}.usage-button-step>.usage-copy,.usage-button-step-reverse>.usage-copy{width:100%;justify-self:stretch}.usage-button-step .usage-copy p{font-size:16px}}
+
+.usage-pattern-pair{display:grid;grid-template-columns:minmax(0,220px) minmax(0,400px);justify-content:center;align-items:center;gap:clamp(20px,5vw,64px);max-width:960px;margin:auto;padding:36px 12px}
+.usage-pattern-pair .usage-counter-demo{width:100%;max-width:220px;border:0;outline:2px solid #b9ada1;border-radius:24px;box-shadow:0 8px 20px rgba(45,38,32,.07);padding:10px 12px 14px;gap:6px}
+.usage-pattern-pair .usage-demo-value strong{font-size:36px}.usage-pattern-pair .usage-demo-value span{font-size:14px}.usage-pattern-pair .usage-demo-count button{height:54px;font-size:34px;border-radius:20px}.usage-pattern-pair .usage-demo-count:last-child button{height:60px;border-radius:999px}
+.usage-pattern-chart svg{display:block;width:100%;height:auto;overflow:visible}.pattern-mark{stroke:#302c29;stroke-width:2;transition:stroke .2s}.pattern-mark.is-done{stroke:#bcb6af}.pattern-mark.is-current{stroke:#c83f3f;stroke-width:2.7;animation:patternPulse .7s ease-in-out infinite alternate;transform-origin:0 0}@keyframes patternPulse{from{transform:scale(1.1)}to{transform:scale(1.45)}}@media(prefers-reduced-motion:reduce){.pattern-mark.is-current{animation:none}}
+@media(max-width:600px){.usage-pattern-pair{grid-template-columns:minmax(0,40%) minmax(0,1fr);gap:12px;padding:28px 4px}.usage-pattern-pair .usage-counter-demo{padding:8px}.usage-pattern-pair .usage-demo-value strong{font-size:30px}}
