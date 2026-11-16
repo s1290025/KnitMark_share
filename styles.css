@@ -1952,7 +1952,7 @@ footer p{margin:14px 0 0}
 .usage-header .usage-page-title{font-size:clamp(24px,4vw,34px);font-weight:500;line-height:1.25;letter-spacing:.06em;text-align:center;margin:14px 0 4px;color:#51453c}
 .usage-button-pair{padding-block:12px 20px}
 .usage-button-pair .usage-counter-demo{gap:4px;padding:8px 12px 10px}
-.usage-button-pair .usage-demo-history{height:clamp(54px,10svh,88px)}
+.usage-button-pair .usage-demo-history{height:88px}
 .usage-button-pair .usage-demo-value strong{font-size:clamp(25px,5svh,36px)}
 .usage-button-pair .usage-demo-count{gap:4px}
 .usage-button-pair .usage-demo-count button{height:clamp(30px,7svh,54px)}
@@ -1978,3 +1978,6 @@ footer p{margin:14px 0 0}
 
 /* Use the same history layout as the flat crochet demonstration. */
 .usage-extra-pair .usage-demo-history [data-demo-history]{display:grid;grid-template-rows:repeat(2,22px);gap:3px;margin-top:4px;height:47px;align-content:start;justify-content:stretch;overflow:hidden}.usage-extra-pair .usage-demo-history-line{box-sizing:border-box;line-height:17px;white-space:nowrap;padding:2px 0;border-bottom:1px solid #EEE3D5;font-variant-numeric:tabular-nums;font-size:inherit}.usage-extra-pair .usage-history-moving .usage-demo-history-line{animation:none}
+
+/* Reserve the full two history rows at every viewport height. */
+.usage-counter-demo .usage-demo-history,.usage-button-pair .usage-demo-history{height:88px;min-height:88px;box-sizing:border-box;flex-shrink:0;padding:8px 10px}.usage-demo-history>span{display:block;line-height:15px}.usage-counter-demo .usage-demo-history [data-demo-history]{height:47px;min-height:47px;grid-template-rows:repeat(2,22px);gap:3px;margin-top:4px}.usage-counter-demo .usage-demo-history-line{height:22px;min-height:22px;box-sizing:border-box}
