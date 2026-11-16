@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#f7f3ed" />
   <meta name="description" content="Knit Mark の詳しい使い方。作品の作成、段・目のカウント、履歴、Undo、途中記録などを説明します。" />
   <title>Knit Mark | 使い方</title>
-  <link rel="stylesheet" href="./styles.css?v=20261116-extra" />
+  <link rel="stylesheet" href="./styles.css?v=20261116-history-flow" />
   <link rel="icon" type="image/png" href="/KnitMark_share/assets/icon.png" />
   <link rel="apple-touch-icon" href="/KnitMark_share/assets/icon.png" />
 </head>
@@ -58,10 +58,10 @@
 <div class="usage-demo-divider"></div><div class="usage-demo-count"><div class="usage-demo-value"><strong data-demo-value="stitch">0</strong><span data-ja="目" data-en="Stitches">目</span><button class="usage-mark-button" data-demo-action="mark-stitch" aria-label="Mark stitches">│→</button></div><button type="button" data-demo-action="stitch" aria-label="Add stitch">＋</button></div>
 </div><div class="usage-copy"><p data-ja="│→を使うと、目数だけ、段数だけを数えることもできます。" data-en="Use │→ to count stitches or rows separately.">│→を使うと、目数だけ、段数だけを数えることもできます。</p></div></div>
       <div class="usage-button-step usage-button-step-reverse"><div class="usage-copy"><p data-ja="途中を記録すると、カウントを変えずに今の位置を履歴に残せます。" data-en="Save your progress to record your current position without changing the count.">途中を記録すると、カウントを変えずに今の位置を履歴に残せます。</p></div><div class="usage-counter-demo" data-demo-mode="progress" aria-label="Counter demonstration">
-<div class="usage-demo-top"><button type="button" data-demo-action="undo" aria-label="Undo">↶</button></div>
+<div class="usage-demo-top usage-progress-top"><span class="usage-sound-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9h4l5-4v14l-5-4H3z M15 9q4 3 0 6 M18 6q7 6 0 12"/></svg></span><button class="usage-progress-button" type="button" data-demo-action="progress" data-ja="途中を記録" data-en="Save Progress">途中を記録</button><button type="button" data-demo-action="undo" aria-label="Undo">↶</button></div>
 <div class="usage-demo-history"><span data-ja="履歴" data-en="History">履歴</span><div data-demo-history></div></div>
 <div class="usage-demo-count"><div class="usage-demo-value"><strong data-demo-value="row">0</strong><span data-ja="段" data-en="Rows">段</span></div><button type="button" data-demo-action="row" aria-label="Add row">＋</button></div>
-<button class="usage-progress-button" type="button" data-demo-action="progress" data-ja="途中を記録" data-en="Save Progress">途中を記録</button><div class="usage-demo-divider"></div><div class="usage-demo-count"><div class="usage-demo-value"><strong data-demo-value="stitch">0</strong><span data-ja="目" data-en="Stitches">目</span></div><button type="button" data-demo-action="stitch" aria-label="Add stitch">＋</button></div>
+<div class="usage-demo-divider"></div><div class="usage-demo-count"><div class="usage-demo-value"><strong data-demo-value="stitch">0</strong><span data-ja="目" data-en="Stitches">目</span></div><button type="button" data-demo-action="stitch" aria-label="Add stitch">＋</button></div>
 </div></div>
     </section>
     <section class="usage-section usage-pattern-pair"><div class="usage-counter-demo" data-demo-mode="flat-pattern" aria-label="Counter demonstration">
@@ -181,6 +181,6 @@
     <p>© 2026 Knit Mark</p>
   </footer>
   <script src="./script.js"></script>
-  <script src="./usage-demo.js?v=20261116-extra"></script>
+  <script src="./usage-demo.js?v=20261116-history-flow"></script>
 </body>
 </html>
