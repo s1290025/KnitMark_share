@@ -62,11 +62,21 @@ document.querySelectorAll('.usage-counter-demo:not([data-demo-mode="pattern"]):n
  turns.push(mark(283,64,chain,65));
  const top=[];for(const x of [258,170,82]){for(const a of [32,0,-32])top.push(mark(x,70,dc,a));top.push(mark(x===82?49:x-44,68,slip));}rounds.push(top);
  const row=demo.querySelector('[data-demo-value="row"]'),stitch=demo.querySelector('[data-demo-value="stitch"]'),history=demo.querySelector('[data-demo-history]'),buttons=[...demo.querySelectorAll('[data-demo-action]')];
- let r=0,s=0,entries=[],stack=[],timer,visible=false,touched=false;const reduced=matchMedia('(prefers-reduced-motion: reduce)');
- function render(){row.textContent=r;stitch.textContent=s;rounds.forEach((arr,j)=>arr.forEach((m,i)=>m.setAttribute('class','pattern-mark '+(j===r&&i===s-1?'is-current':j<r||j===r&&i<s?'is-done':''))));turns.forEach((m,i)=>m.setAttribute('class','pattern-mark '+(r===i+1&&s===0?'is-current':r>=i+1?'is-done':'')));const en=document.documentElement.lang==='en';history.replaceChildren(...entries.slice(-2).map(e=>{const d=document.createElement('div');d.className='usage-demo-history-line';d.textContent=en?e[0]+' rows · '+e[1]+' stitches':e[0]+'段 '+e[1]+'目';return d;}));}
- function act(a){if(a==='undo'){if(stack.length)[r,s,entries]=stack.pop();}else{if(a==='row'&&(r===4||s!==rounds[r].length)||a==='stitch'&&s===rounds[r].length)return;stack.push([r,s,entries]);if(a==='row'){entries=[...entries,[r,s]];r++;s=0;}else s++;}const b=buttons.find(b=>b.dataset.demoAction===a);b.classList.add('is-pressed');setTimeout(()=>b.classList.remove('is-pressed'),220);render();}
- function tick(){if(!visible||touched||reduced.matches)return;if(r===4&&s===rounds[r].length){r=0;s=0;entries=[];stack=[];render();}else act(s===rounds[r].length?'row':'stitch');timer=setTimeout(tick,r===4&&s===12?2200:s===0||s===rounds[r].length?1200:700);}
- buttons.forEach(b=>b.addEventListener('click',()=>{touched=true;clearTimeout(timer);act(b.dataset.demoAction);}));
+ const steps=[];
+ const add=(action,mark=null)=>steps.push({action,mark});
+ rounds[0].forEach(m=>add('stitch',m));add('mark-stitch');
+ for(let i=1;i<=3;i++){add('highlight',turns[i-1]);if(i>1)add('row');rounds[i].forEach(m=>add('stitch',m));}
+ // The next turning chain starts the decorative edge.
+ add('highlight',turns[3]);add('row');add('mark-row');
+ for(let i=0;i<12;i+=4){for(let k=0;k<3;k++)add('stitch',rounds[4][i+k]);add('mark-stitch');add('highlight',rounds[4][i+3]);}
+ const all=[...rounds.flat(),...turns];
+ let r=0,s=0,entries=[],completed=[],active=null,index=0,stack=[],timer,visible=false,touched=false;
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+ function render(){row.textContent=r;stitch.textContent=s;all.forEach(m=>m.setAttribute('class','pattern-mark '+(m===active?'is-current':completed.includes(m)?'is-done':'')));const en=document.documentElement.lang==='en';history.replaceChildren(...entries.slice(-2).map(e=>{const d=document.createElement('div');d.className='usage-demo-history-line';d.textContent=(en?e.r+' rows · '+e.s+' stitches':e.r+'段 '+e.s+'目')+(e.mark?' │→':'');return d;}));}
+ function act(a){if(a==='undo'){if(stack.length){({r,s,entries,completed,active,index}=stack.pop());}}else{const step=steps[index];if(!step||step.action!==a)return;stack.push({r,s,entries,completed,active,index});index++;active=step.mark;if(active)completed=[...completed,active];if(a==='stitch')s++;if(a==='row'||a==='mark-row'||a==='mark-stitch'){if(s||a==='mark-row')entries=[...entries,{r,s,mark:a!=='row'}];s=0;if(a==='row')r++;if(a==='mark-row')r=0;}}
+ const b=buttons.find(b=>b.dataset.demoAction===a);if(b){b.classList.add('is-pressed');setTimeout(()=>b.classList.remove('is-pressed'),220);}render();}
+ function tick(){if(!visible||touched||reduced.matches)return;if(index===steps.length){r=0;s=0;entries=[];completed=[];active=null;index=0;stack=[];render();}else act(steps[index].action);timer=setTimeout(tick,index===steps.length?2200:steps[index-1]?.action?.startsWith('mark')?1100:700);}
+ buttons.forEach(b=>b.addEventListener('click',()=>{touched=true;clearTimeout(timer);while(b.dataset.demoAction!=='undo'&&steps[index]?.action==='highlight')act('highlight');act(b.dataset.demoAction);}));
  new MutationObserver(render).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
  if('IntersectionObserver' in window)new IntersectionObserver(([e])=>{visible=e.isIntersecting;clearTimeout(timer);if(visible&&!touched&&!reduced.matches)timer=setTimeout(tick,700);},{threshold:.3}).observe(demo);render();
 })();
