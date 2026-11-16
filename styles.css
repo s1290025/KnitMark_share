@@ -1878,3 +1878,8 @@ footer p{margin:14px 0 0}
 @keyframes usageCountPop{0%{transform:scale(.85);opacity:.55}60%{transform:scale(1.15)}100%{transform:scale(1);opacity:1}}
 @media(max-width:760px){.usage-buttons{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;text-align:left}.usage-buttons .usage-copy h2{font-size:clamp(20px,4vw,32px)}.usage-counter-demo{padding:10px;gap:8px}.usage-demo-value strong{font-size:42px}.usage-demo-value span{font-size:15px}.usage-demo-count button{height:64px;font-size:40px}.usage-demo-count:last-child button{height:72px}}
 @media(prefers-reduced-motion:reduce){.usage-counter-demo button{transition:none}.usage-demo-value strong.is-changing{animation:none}}
+
+.usage-demo-history{background:#fff;border:1px solid #DED0C0;border-radius:12px;padding:8px 10px;text-align:left;min-height:78px;box-sizing:border-box;color:#2B241E;font-size:12px}
+.usage-demo-history>span{color:#827467;font-size:11px}
+.usage-demo-history [data-demo-history]{display:grid;gap:3px;margin-top:4px}
+.usage-demo-history-line{padding:2px 0;border-bottom:1px solid #EEE3D5;font-variant-numeric:tabular-nums}
