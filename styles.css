@@ -1900,11 +1900,13 @@ footer p{margin:14px 0 0}
 
 @media(max-width:360px){.usage-button-step,.usage-button-step-reverse{margin-left:0;margin-right:0;gap:10px}.usage-button-step{grid-template-columns:minmax(0,125px) minmax(0,1fr)}.usage-button-step-reverse{grid-template-columns:minmax(0,1fr) minmax(0,125px)}}
 
-/* Compact staggered pair: keep each explanation in the central column. */
-.usage-button-pair{display:grid;grid-template-columns:minmax(0,170px) minmax(0,1fr) minmax(0,170px);grid-template-rows:auto auto;column-gap:16px;row-gap:0;align-items:start}
-.usage-button-step,.usage-button-step-reverse{display:contents}
-.usage-button-step>.usage-counter-demo{grid-column:1;grid-row:1 / 3;align-self:start}
-.usage-button-step>.usage-copy{grid-column:2;grid-row:1;align-self:start;padding-top:26px}
-.usage-button-step-reverse>.usage-copy{grid-column:2;grid-row:2;align-self:end;padding:20px 0 24px}
-.usage-button-step-reverse>.usage-counter-demo{grid-column:3;grid-row:1 / 3;align-self:start;margin-top:48px}
-@media(max-width:560px){.usage-button-pair{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;align-items:start}.usage-button-step>.usage-counter-demo{grid-column:1;grid-row:1;margin:0 auto}.usage-button-step-reverse>.usage-counter-demo{grid-column:2;grid-row:1;margin:32px auto 0}.usage-button-step>.usage-copy{grid-column:1;grid-row:2;padding:0}.usage-button-step-reverse>.usage-copy{grid-column:2;grid-row:2;padding:0;align-self:start}.usage-button-pair .usage-copy p{font-size:15px}}
+
+/* Explicit three-column layout, without display:contents. */
+.usage-button-pair{position:relative;display:block;max-width:680px;min-height:410px;padding:24px 0 32px;box-sizing:content-box}
+.usage-button-step,.usage-button-step-reverse{display:grid;position:relative;grid-template-columns:minmax(0,170px) minmax(0,1fr);gap:16px;margin:0;width:calc(100% - 186px);align-items:start}
+.usage-button-step>.usage-copy{padding-top:30px}
+.usage-button-step-reverse{position:absolute;top:72px;right:0;grid-template-columns:minmax(0,1fr) minmax(0,170px);pointer-events:none}
+.usage-button-step-reverse>.usage-copy{align-self:end;padding-bottom:30px;pointer-events:auto}
+.usage-button-step-reverse>.usage-counter-demo{pointer-events:auto}
+.usage-button-step .usage-copy p{font-size:clamp(16px,2.5vw,21px)}
+@media(max-width:560px){.usage-button-pair{min-height:0;display:grid;grid-template-columns:1fr 1fr;gap:12px}.usage-button-step,.usage-button-step-reverse{position:static;width:auto;display:flex;flex-direction:column;gap:10px;pointer-events:auto}.usage-button-step-reverse{flex-direction:column-reverse;margin-top:32px}.usage-button-step>.usage-copy,.usage-button-step-reverse>.usage-copy{padding:0;align-self:stretch}.usage-button-step .usage-copy p{font-size:15px}}
