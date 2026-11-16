@@ -1883,3 +1883,5 @@ footer p{margin:14px 0 0}
 .usage-demo-history>span{color:#827467;font-size:11px}
 .usage-demo-history [data-demo-history]{display:grid;gap:3px;margin-top:4px}
 .usage-demo-history-line{padding:2px 0;border-bottom:1px solid #EEE3D5;font-variant-numeric:tabular-nums}
+
+.usage-buttons .usage-copy p{font-size:clamp(17px,2.5vw,25px);line-height:1.8;color:#2B241E;font-weight:500;overflow-wrap:anywhere}
