@@ -1,4 +1,4 @@
-document.querySelectorAll('.usage-counter-demo:not([data-demo-mode="pattern"]):not([data-demo-mode="flat-pattern"])').forEach(demo => {
+document.querySelectorAll('.usage-counter-demo[data-demo-mode="forward"],.usage-counter-demo[data-demo-mode="undo"]').forEach(demo => {
  const reverse=demo.dataset.demoMode==='undo';
  const buttons=[...demo.querySelectorAll('[data-demo-action]')];
  const values={row:demo.querySelector('[data-demo-value="row"]'),stitch:demo.querySelector('[data-demo-value="stitch"]')};
@@ -80,3 +80,14 @@ document.querySelectorAll('.usage-counter-demo:not([data-demo-mode="pattern"]):n
  new MutationObserver(render).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
  if('IntersectionObserver' in window)new IntersectionObserver(([e])=>{visible=e.isIntersecting;clearTimeout(timer);if(visible&&!touched&&!reduced.matches)timer=setTimeout(tick,700);},{threshold:.3}).observe(demo);render();
 })();
+
+document.querySelectorAll('[data-demo-mode="marks"],[data-demo-mode="progress"]').forEach(demo=>{
+ const marks=demo.dataset.demoMode==='marks', sequence=marks?['stitch','stitch','stitch','mark-stitch','stitch','stitch','mark-stitch','row','row','row','mark-row']:['row','stitch','stitch','progress','stitch','stitch','row'];
+ const buttons=[...demo.querySelectorAll('[data-demo-action]')],row=demo.querySelector('[data-demo-value="row"]'),stitch=demo.querySelector('[data-demo-value="stitch"]'),history=demo.querySelector('[data-demo-history]');
+ let r=0,s=0,entries=[],stack=[],i=0,timer,visible=false,touched=false;const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+ function render(){row.textContent=r;stitch.textContent=s;const en=document.documentElement.lang==='en';history.replaceChildren(...entries.slice(-2).map(e=>{const d=document.createElement('div');d.className='usage-demo-history-line';d.textContent=(en?e.r+' rows · '+e.s+' stitches':e.r+'段 '+e.s+'目')+(e.paused?(en?' · Paused':' · 途中'):'');return d;}));}
+ function act(a){if(a==='undo'){if(stack.length)[r,s,entries]=stack.pop();}else{stack.push([r,s,entries]);if(a==='stitch')s++;else if(a==='progress'){entries=[...entries.filter(e=>!e.paused),{r,s,paused:true}];}else{entries=entries.filter(e=>!e.paused);if(s||a==='mark-row'&&r)entries=[...entries,{r,s}];s=0;if(a==='row')r++;if(a==='mark-row')r=0;}}const b=buttons.find(b=>b.dataset.demoAction===a);if(b){b.classList.add('is-pressed');setTimeout(()=>b.classList.remove('is-pressed'),220);}render();}
+ function tick(){if(!visible||touched||reduced.matches)return;if(i===sequence.length){r=0;s=0;entries=[];stack=[];i=0;render();}else act(sequence[i++]);timer=setTimeout(tick,i===sequence.length?1900:sequence[i-1]==='progress'?1800:850);}
+ buttons.forEach(b=>b.addEventListener('click',()=>{touched=true;clearTimeout(timer);act(b.dataset.demoAction);}));
+ new MutationObserver(render).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});if('IntersectionObserver' in window)new IntersectionObserver(([e])=>{visible=e.isIntersecting;clearTimeout(timer);if(visible&&!touched&&!reduced.matches)timer=setTimeout(tick,850);},{threshold:.3}).observe(demo);render();
+});
