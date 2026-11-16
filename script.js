@@ -1,5 +1,6 @@
 const button = document.getElementById('langToggle');
-let lang = localStorage.getItem('knitmark-lang') || 'ja';
+const requestedLang = new URLSearchParams(window.location.search).get('lang');
+let lang = requestedLang === 'ja' || requestedLang === 'en' ? requestedLang : (localStorage.getItem('knitmark-lang') || 'ja');
 
 function applyLanguage() {
   document.documentElement.lang = lang;
@@ -21,6 +22,9 @@ function applyLanguage() {
 
 button?.addEventListener('click', () => {
   lang = lang === 'ja' ? 'en' : 'ja';
+  const url = new URL(window.location.href);
+  url.searchParams.delete('lang');
+  window.history.replaceState(null, '', url);
   applyLanguage();
 });
 
