@@ -1623,3 +1623,237 @@ footer p{margin:14px 0 0}
   object-fit:contain;
   object-position:center;
 }
+
+
+/* Detailed usage guide */
+.detail-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:22px;
+  padding:10px 18px;
+  border:1px solid #cdbdaf;
+  border-radius:999px;
+  background:rgba(255,253,249,.72);
+  font-size:13px;
+  font-weight:700;
+  transition:transform .2s ease,background-color .2s ease,border-color .2s ease;
+}
+.detail-link:hover{
+  transform:translateY(-2px);
+  background:#fffdf9;
+  border-color:#baa897;
+}
+
+.usage-page{
+  max-width:1040px;
+  margin:0 auto;
+  padding:0 28px;
+}
+.usage-header{
+  padding:34px 0 72px;
+  text-align:center;
+}
+.usage-header .hero-top{
+  margin-bottom:46px;
+}
+.usage-header .app-mark{
+  text-align:left;
+}
+.usage-header .lang-switch{
+  position:static;
+}
+.back-link{
+  display:inline-block;
+  margin-bottom:30px;
+  color:var(--muted);
+  font-size:13px;
+  font-weight:700;
+}
+.usage-header h1{
+  margin:8px 0 18px;
+  font-size:clamp(46px,7vw,78px);
+  line-height:1;
+}
+.usage-lead{
+  max-width:610px;
+  margin:0 auto;
+  color:var(--muted);
+  font-size:14px;
+}
+
+.usage-section{
+  border-top:1px solid var(--line);
+  padding:76px 0;
+}
+.usage-row{
+  display:grid;
+  grid-template-columns:minmax(180px,280px) minmax(0,1fr);
+  align-items:center;
+  gap:72px;
+}
+.usage-row-reverse{
+  grid-template-columns:minmax(0,1fr) minmax(180px,280px);
+}
+.usage-row-reverse .usage-image{
+  order:2;
+}
+.usage-row-reverse .usage-copy{
+  order:1;
+}
+.usage-image{
+  width:min(100%,250px);
+  margin:0 auto;
+  border-radius:24px;
+  outline:2px solid #b9ada1;
+  background:#fbf8f4;
+  box-shadow:0 16px 36px rgba(69,54,43,.10);
+  overflow:hidden;
+}
+.usage-image img{
+  display:block;
+  width:100%;
+  height:auto;
+  margin:0!important;
+}
+.usage-ipad{
+  width:min(100%,420px);
+  max-width:none;
+}
+.usage-copy h2{
+  margin:10px 0 14px;
+  font-size:clamp(30px,4vw,46px);
+  line-height:1.18;
+  letter-spacing:-.035em;
+}
+.usage-copy h3{
+  margin:0 0 7px;
+  font-size:18px;
+}
+.usage-copy p{
+  margin:0;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.85;
+}
+.usage-number{
+  display:grid;
+  place-items:center;
+  width:32px;
+  height:32px;
+  border:1px solid #cdbdaf;
+  border-radius:50%;
+  background:var(--surface);
+  font-size:12px;
+  font-weight:800;
+}
+.usage-note{
+  display:grid;
+  gap:5px;
+  margin-top:22px;
+  padding:16px 18px;
+  border-radius:16px;
+  background:var(--surface-2);
+}
+.usage-note strong{
+  font-size:12px;
+}
+.usage-note span{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.7;
+}
+.usage-simple{
+  max-width:760px;
+  margin:0 auto;
+}
+.usage-copy.wide{
+  max-width:760px;
+  margin:0 auto;
+}
+.usage-two{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  margin-top:24px;
+}
+.usage-two>div{
+  padding:20px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:var(--surface);
+}
+.usage-end{
+  padding:28px 0 92px;
+  text-align:center;
+}
+.back-home-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:46px;
+  padding:0 22px;
+  border-radius:999px;
+  background:#2f2b28;
+  color:#fff;
+  font-size:13px;
+  font-weight:700;
+}
+
+@media(max-width:760px){
+  .usage-page{
+    padding:0 18px;
+  }
+  .usage-header{
+    padding-top:24px;
+  }
+  .usage-header .hero-top{
+    margin-bottom:36px;
+  }
+  .usage-row,
+  .usage-row-reverse{
+    grid-template-columns:1fr;
+    gap:34px;
+    text-align:center;
+  }
+  .usage-row-reverse .usage-image,
+  .usage-row-reverse .usage-copy{
+    order:initial;
+  }
+  .usage-image{
+    width:min(210px,64vw);
+  }
+  .usage-ipad{
+    width:min(100%,560px);
+  }
+  .usage-number{
+    margin:0 auto;
+  }
+  .usage-note{
+    text-align:left;
+  }
+}
+
+@media(max-width:560px){
+  .usage-header .hero-top{
+    margin-bottom:32px;
+  }
+  .usage-header .app-mark{
+    position:static;
+  }
+  .usage-header .lang-switch{
+    position:static;
+  }
+  .usage-header h1{
+    font-size:48px;
+  }
+  .usage-section{
+    padding:58px 0;
+  }
+  .usage-two{
+    grid-template-columns:1fr;
+  }
+  .detail-link{
+    margin-top:18px;
+  }
+}
