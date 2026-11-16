@@ -1945,3 +1945,18 @@ footer p{margin:14px 0 0}
 @media(max-width:600px){.usage-pattern-pair{grid-template-columns:minmax(0,40%) minmax(0,1fr);gap:12px;padding:28px 4px}.usage-pattern-pair .usage-counter-demo{padding:8px}.usage-pattern-pair .usage-demo-value strong{font-size:30px}}
 
 .usage-pattern-chart{padding:8px;box-sizing:border-box}.pattern-mark{stroke:#51453c;stroke-width:1.8}.pattern-mark.is-current{stroke:#c83f3f;stroke-width:2.4}.pattern-join{stroke-linejoin:round}.usage-pattern-chart svg{max-width:380px;margin:auto}
+
+/* Keep the first guide block within the initial viewport. */
+.usage-header{padding-top:18px;padding-bottom:8px}
+.usage-header .hero-top{margin-bottom:0}
+.usage-header .usage-page-title{font-size:clamp(24px,4vw,34px);font-weight:500;line-height:1.25;letter-spacing:.06em;text-align:center;margin:14px 0 4px;color:#51453c}
+.usage-button-pair{padding-block:12px 20px}
+.usage-button-pair .usage-counter-demo{gap:4px;padding:8px 12px 10px}
+.usage-button-pair .usage-demo-history{height:clamp(54px,10svh,88px)}
+.usage-button-pair .usage-demo-value strong{font-size:clamp(25px,5svh,36px)}
+.usage-button-pair .usage-demo-count{gap:4px}
+.usage-button-pair .usage-demo-count button{height:clamp(30px,7svh,54px)}
+.usage-button-pair .usage-demo-count:last-child button{height:clamp(34px,8svh,60px)}
+.usage-button-step-reverse>.usage-counter-demo{margin-top:24px}
+@media(max-width:600px){.usage-header{padding-top:12px}.usage-header .usage-page-title{margin-top:10px}.usage-button-pair{padding-block:8px 16px;row-gap:10px}.usage-button-step>.usage-copy,.usage-button-step-reverse>.usage-copy{padding:9px 10px}.usage-button-step .usage-copy p{font-size:15px;line-height:1.65}}
+@media(max-height:600px) and (min-width:601px){.usage-header{padding-top:8px}.usage-header .usage-page-title{margin:4px 0;font-size:24px}.usage-button-pair{padding-block:4px 10px}.usage-button-pair .usage-demo-top button{height:24px;width:24px;font-size:17px}.usage-button-step-reverse>.usage-counter-demo{margin-top:12px}.usage-button-step>.usage-copy{margin-top:8px}.usage-button-step-reverse>.usage-copy{margin:0 0 8px}}
