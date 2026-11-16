@@ -1935,7 +1935,7 @@ footer p{margin:14px 0 0}
 .usage-button-step>.usage-counter-demo,.usage-button-step-reverse>.usage-counter-demo{max-width:220px;border:0;outline:2px solid #b9ada1;outline-offset:0;border-radius:24px;box-shadow:0 8px 20px rgba(45,38,32,.07);overflow:hidden}
 .usage-button-step>.usage-copy{width:fit-content;max-width:100%;justify-self:start;background:#fffdf9}
 .usage-button-step-reverse>.usage-copy{justify-self:end}
-.usage-button-step .usage-copy p{font-family:"Hiragino Maru Gothic ProN","Hiragino Sans","Yu Gothic",sans-serif;font-size:clamp(16px,1.8vw,18px);font-weight:400;color:#51453c;line-height:1.85}
+.usage-button-step .usage-copy p{font-family:inherit;font-size:clamp(16px,1.8vw,18px);font-weight:400;color:#51453c;line-height:1.85}
 @media(max-width:600px){.usage-button-pair{grid-template-columns:repeat(2,minmax(0,1fr));padding-inline:6px;column-gap:14px}.usage-button-step>.usage-copy,.usage-button-step-reverse>.usage-copy{width:100%;justify-self:stretch}.usage-button-step .usage-copy p{font-size:16px}}
 
 .usage-pattern-pair{display:grid;grid-template-columns:minmax(0,220px) minmax(0,400px);justify-content:center;align-items:center;gap:clamp(20px,5vw,64px);max-width:960px;margin:auto;padding:36px 12px}
@@ -1960,3 +1960,7 @@ footer p{margin:14px 0 0}
 .usage-button-step-reverse>.usage-counter-demo{margin-top:24px}
 @media(max-width:600px){.usage-header{padding-top:12px}.usage-header .usage-page-title{margin-top:10px}.usage-button-pair{padding-block:8px 16px;row-gap:10px}.usage-button-step>.usage-copy,.usage-button-step-reverse>.usage-copy{padding:9px 10px}.usage-button-step .usage-copy p{font-size:15px;line-height:1.65}}
 @media(max-height:600px) and (min-width:601px){.usage-header{padding-top:8px}.usage-header .usage-page-title{margin:4px 0;font-size:24px}.usage-button-pair{padding-block:4px 10px}.usage-button-pair .usage-demo-top button{height:24px;width:24px;font-size:17px}.usage-button-step-reverse>.usage-counter-demo{margin-top:12px}.usage-button-step>.usage-copy{margin-top:8px}.usage-button-step-reverse>.usage-copy{margin:0 0 8px}}
+
+/* Match the homepage typography throughout the guide. */
+.usage-header .usage-page-title{font-family:inherit;letter-spacing:normal;font-weight:700;color:var(--text,#2b241e)}
+.usage-button-step .usage-copy p{font-family:inherit;letter-spacing:normal;font-weight:400;color:var(--text,#2b241e)}
