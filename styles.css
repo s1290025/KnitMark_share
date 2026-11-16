@@ -1863,9 +1863,7 @@ footer p{margin:14px 0 0}
 .usage-header .hero-top{margin-bottom:0}
 .usage-buttons{grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:64px}
 .usage-counter-demo{box-sizing:border-box;width:min(100%,280px);margin:auto;padding:14px 18px 22px;border-radius:24px;background:#F8F3EC;color:#2B241E;display:grid;gap:12px;border:1px solid #DED0C0}
-.usage-demo-top{display:flex;justify-content:flex-end}
 .usage-counter-demo button{font:inherit;cursor:pointer;color:#2B241E;transition:transform .18s,opacity .18s;touch-action:manipulation}
-.usage-demo-top button{width:40px;height:40px;border-radius:50%;border:1.5px solid #C9A77F;background:#EEE3D5;font-size:25px}
 .usage-demo-count{display:grid;justify-items:center;gap:8px}
 .usage-demo-value{display:flex;align-items:baseline;justify-content:center;gap:6px}
 .usage-demo-value span{font-size:20px}
@@ -1879,9 +1877,9 @@ footer p{margin:14px 0 0}
 @media(max-width:760px){.usage-buttons{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;text-align:left}.usage-buttons .usage-copy h2{font-size:clamp(20px,4vw,32px)}.usage-counter-demo{padding:10px;gap:8px}.usage-demo-value strong{font-size:42px}.usage-demo-value span{font-size:15px}.usage-demo-count button{height:64px;font-size:40px}.usage-demo-count:last-child button{height:72px}}
 @media(prefers-reduced-motion:reduce){.usage-counter-demo button{transition:none}.usage-demo-value strong.is-changing{animation:none}}
 
-.usage-demo-history{background:#fff;border:1px solid #DED0C0;border-radius:12px;padding:8px 10px;text-align:left;min-height:78px;box-sizing:border-box;color:#2B241E;font-size:12px}
+.usage-demo-history{background:#fff;border:1px solid #DED0C0;border-radius:12px;padding:8px 10px;text-align:left;height:88px;box-sizing:border-box;color:#2B241E;font-size:12px;overflow:hidden}
 .usage-demo-history>span{color:#827467;font-size:11px}
-.usage-demo-history [data-demo-history]{display:grid;gap:3px;margin-top:4px}
-.usage-demo-history-line{padding:2px 0;border-bottom:1px solid #EEE3D5;font-variant-numeric:tabular-nums}
+.usage-demo-history [data-demo-history]{display:grid;grid-template-rows:repeat(2,22px);gap:3px;margin-top:4px;height:47px;align-content:start}
+.usage-demo-history-line{box-sizing:border-box;line-height:17px;white-space:nowrap;padding:2px 0;border-bottom:1px solid #EEE3D5;font-variant-numeric:tabular-nums}
 
 .usage-buttons .usage-copy p{font-size:clamp(17px,2.5vw,25px);line-height:1.8;color:#2B241E;font-weight:500;overflow-wrap:anywhere}

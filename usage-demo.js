@@ -4,7 +4,7 @@
   const buttons = [...demo.querySelectorAll('[data-demo-action]')];
   const values = {row: demo.querySelector('[data-demo-value="row"]'), stitch: demo.querySelector('[data-demo-value="stitch"]')};
   const historyBox = demo.querySelector('[data-demo-history]');
-  let state = {row:0, stitch:0, entries:[]}, history = [], timer, touched = false;
+  let state = {row:0, stitch:0, entries:[]}, timer, touched = false;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   function render() {
     const english = document.documentElement.lang === 'en';
@@ -24,11 +24,7 @@
     }
   }
   function act(action) {
-    if (action === 'undo') { if (history.length) state = history.pop(); }
-    else {
-      history.push({...state});
-      state = action === 'row' ? {row:state.row+1,stitch:0,entries:state.stitch>0?[...state.entries,{row:state.row,stitch:state.stitch}]:state.entries} : {...state,stitch:state.stitch+1};
-    }
+    state = action === 'row' ? {row:state.row+1,stitch:0,entries:state.stitch>0?[...state.entries,{row:state.row,stitch:state.stitch}]:state.entries} : {...state,stitch:state.stitch+1};
     const button = buttons.find(b => b.dataset.demoAction === action);
     button.classList.add('is-pressed');
     setTimeout(() => button.classList.remove('is-pressed'), 220);
@@ -42,7 +38,7 @@
   let i = 0, visible = false;
   function tick() {
     if (touched || !visible || reduced.matches) return;
-    if (i === sequence.length) { state = {row:0,stitch:0,entries:[]}; history = []; render(); i = 0; }
+    if (i === sequence.length) { state = {row:0,stitch:0,entries:[]}; render(); i = 0; }
     else act(sequence[i++]);
     timer = setTimeout(tick, i === sequence.length ? 1900 : 1100);
   }
