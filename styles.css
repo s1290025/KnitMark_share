@@ -1898,5 +1898,13 @@ footer p{margin:14px 0 0}
 .usage-button-pair .usage-demo-history{height:88px}
 @media(max-width:560px){.usage-button-step{grid-template-columns:minmax(0,145px) minmax(0,1fr);gap:12px}.usage-button-step-reverse{grid-template-columns:minmax(0,1fr) minmax(0,145px)}.usage-button-pair{gap:8px}.usage-button-step{margin-right:12px}.usage-button-step-reverse{margin-right:0;margin-left:12px}.usage-button-pair .usage-counter-demo{padding:8px}.usage-button-pair .usage-copy p{font-size:16px}}
 
-@media(min-width:561px){.usage-button-step-reverse{margin-top:-34px}.usage-button-step .usage-copy{align-self:start;padding-top:34px}.usage-button-step-reverse .usage-copy{align-self:end;padding-top:0;padding-bottom:34px}}
 @media(max-width:360px){.usage-button-step,.usage-button-step-reverse{margin-left:0;margin-right:0;gap:10px}.usage-button-step{grid-template-columns:minmax(0,125px) minmax(0,1fr)}.usage-button-step-reverse{grid-template-columns:minmax(0,1fr) minmax(0,125px)}}
+
+/* Compact staggered pair: keep each explanation in the central column. */
+.usage-button-pair{display:grid;grid-template-columns:minmax(0,170px) minmax(0,1fr) minmax(0,170px);grid-template-rows:auto auto;column-gap:16px;row-gap:0;align-items:start}
+.usage-button-step,.usage-button-step-reverse{display:contents}
+.usage-button-step>.usage-counter-demo{grid-column:1;grid-row:1 / 3;align-self:start}
+.usage-button-step>.usage-copy{grid-column:2;grid-row:1;align-self:start;padding-top:26px}
+.usage-button-step-reverse>.usage-copy{grid-column:2;grid-row:2;align-self:end;padding:20px 0 24px}
+.usage-button-step-reverse>.usage-counter-demo{grid-column:3;grid-row:1 / 3;align-self:start;margin-top:48px}
+@media(max-width:560px){.usage-button-pair{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;align-items:start}.usage-button-step>.usage-counter-demo{grid-column:1;grid-row:1;margin:0 auto}.usage-button-step-reverse>.usage-counter-demo{grid-column:2;grid-row:1;margin:32px auto 0}.usage-button-step>.usage-copy{grid-column:1;grid-row:2;padding:0}.usage-button-step-reverse>.usage-copy{grid-column:2;grid-row:2;padding:0;align-self:start}.usage-button-pair .usage-copy p{font-size:15px}}
