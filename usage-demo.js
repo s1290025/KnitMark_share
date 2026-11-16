@@ -1,4 +1,4 @@
-document.querySelectorAll('.usage-counter-demo:not([data-demo-mode="pattern"])').forEach(demo => {
+document.querySelectorAll('.usage-counter-demo:not([data-demo-mode="pattern"]):not([data-demo-mode="flat-pattern"])').forEach(demo => {
  const reverse=demo.dataset.demoMode==='undo';
  const buttons=[...demo.querySelectorAll('[data-demo-action]')];
  const values={row:demo.querySelector('[data-demo-value="row"]'),stitch:demo.querySelector('[data-demo-value="stitch"]')};
@@ -50,4 +50,23 @@ document.querySelectorAll('.usage-counter-demo:not([data-demo-mode="pattern"])')
  new MutationObserver(render).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
  if('IntersectionObserver' in window)new IntersectionObserver(([e])=>{visible=e.isIntersecting;clearTimeout(timer);if(visible&&!touched&&!reduced.matches)timer=setTimeout(tick,700);},{threshold:.3}).observe(demo);
  render();
+})();
+(() => {
+ const demo=document.querySelector('[data-demo-mode="flat-pattern"]'),svg=document.querySelector('[data-flat-chart]');if(!demo||!svg)return;
+ const ns='http://www.w3.org/2000/svg', rounds=[];
+ function mark(x,y,shape,angle=0){const a=document.createElementNS(ns,'g');a.setAttribute('transform','translate('+x+' '+y+') rotate('+angle+')');svg.append(a);const g=document.createElementNS(ns,'g');g.setAttribute('class','pattern-mark');a.append(g);const p=document.createElementNS(ns,'path');p.setAttribute('d',shape);p.setAttribute('fill','none');p.setAttribute('stroke-linecap','round');p.setAttribute('stroke-linejoin','round');g.append(p);return g;}
+ const chain='M-12 0 A12 5.5 0 1 0 12 0 A12 5.5 0 1 0 -12 0',cross='M-10 0H10 M0 -12V12',dc='M0 0V-47 M-10 -47H10 M-9 -30H9',slip='M-5 0H5';
+ rounds.push(Array.from({length:5},(_,i)=>mark(258-i*44,207,chain)));
+ const turns=[];
+ for(let r=0;r<3;r++){const y=174-r*44, left=r%2===0;turns.push(mark(left?49:283,y,chain,left?65:115));rounds.push(Array.from({length:5},(_,i)=>mark(left?82+i*44:258-i*44,y,cross)));}
+ turns.push(mark(283,64,chain,65));
+ const top=[];for(const x of [258,170,82]){for(const a of [32,0,-32])top.push(mark(x,70,dc,a));top.push(mark(x===82?49:x-44,68,slip));}rounds.push(top);
+ const row=demo.querySelector('[data-demo-value="row"]'),stitch=demo.querySelector('[data-demo-value="stitch"]'),history=demo.querySelector('[data-demo-history]'),buttons=[...demo.querySelectorAll('[data-demo-action]')];
+ let r=0,s=0,entries=[],stack=[],timer,visible=false,touched=false;const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+ function render(){row.textContent=r;stitch.textContent=s;rounds.forEach((arr,j)=>arr.forEach((m,i)=>m.setAttribute('class','pattern-mark '+(j===r&&i===s-1?'is-current':j<r||j===r&&i<s?'is-done':''))));turns.forEach((m,i)=>m.setAttribute('class','pattern-mark '+(r===i+1&&s===0?'is-current':r>=i+1?'is-done':'')));const en=document.documentElement.lang==='en';history.replaceChildren(...entries.slice(-2).map(e=>{const d=document.createElement('div');d.className='usage-demo-history-line';d.textContent=en?e[0]+' rows · '+e[1]+' stitches':e[0]+'段 '+e[1]+'目';return d;}));}
+ function act(a){if(a==='undo'){if(stack.length)[r,s,entries]=stack.pop();}else{if(a==='row'&&(r===4||s!==rounds[r].length)||a==='stitch'&&s===rounds[r].length)return;stack.push([r,s,entries]);if(a==='row'){entries=[...entries,[r,s]];r++;s=0;}else s++;}const b=buttons.find(b=>b.dataset.demoAction===a);b.classList.add('is-pressed');setTimeout(()=>b.classList.remove('is-pressed'),220);render();}
+ function tick(){if(!visible||touched||reduced.matches)return;if(r===4&&s===rounds[r].length){r=0;s=0;entries=[];stack=[];render();}else act(s===rounds[r].length?'row':'stitch');timer=setTimeout(tick,r===4&&s===12?2200:s===0||s===rounds[r].length?1200:700);}
+ buttons.forEach(b=>b.addEventListener('click',()=>{touched=true;clearTimeout(timer);act(b.dataset.demoAction);}));
+ new MutationObserver(render).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+ if('IntersectionObserver' in window)new IntersectionObserver(([e])=>{visible=e.isIntersecting;clearTimeout(timer);if(visible&&!touched&&!reduced.matches)timer=setTimeout(tick,700);},{threshold:.3}).observe(demo);render();
 })();
