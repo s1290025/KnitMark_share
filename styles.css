@@ -2007,3 +2007,11 @@ footer p{margin:14px 0 0}
 .hero .hero-live{top:24px}
 .hero-live .hero-chart{transform:translate(-18px,24px)}
 @media(max-width:760px){.hero .hero-live{top:14px}.hero-live .hero-chart{transform:translate(-8px,16px)}}
+
+/* Japanese tablet portrait title: exactly two natural lines. */
+.hero-title .hero-tablet-line{display:none}
+@media (orientation:portrait) and (min-width:768px) and (max-width:1100px){
+html[lang="ja"] .hero-title>.hero-line{display:none}
+html[lang="ja"] .hero-title>.hero-tablet-line{display:block;white-space:nowrap}
+html[lang="ja"] .hero-title{font-size:clamp(24px,3.7vw,40px);letter-spacing:-.04em}
+}
