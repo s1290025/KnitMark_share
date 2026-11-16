@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#f7f3ed" />
   <meta name="description" content="Knit Mark - 編み物の段数と目数を、シンプルに記録できるカウンターアプリ。" />
   <title>Knit Mark | 編み物カウンター</title>
-  <link rel="stylesheet" href="./styles.css?v=20261116-soft-guide" />
+  <link rel="stylesheet" href="./styles.css?v=20261116-live-hero" />
   <link rel="icon" type="image/png" href="/KnitMark_share/assets/icon.png" />
   <link rel="apple-touch-icon" href="/KnitMark_share/assets/icon.png" />
 </head>
@@ -48,11 +48,16 @@
         </div>
       </div>
 
-      <div class="hero-device" aria-label="Knit Mark app preview">
-        <div class="screen-crop hero-screenshot">
-          <img src="./assets/screenshots/counter-progress.jpeg" data-ja-src="./assets/screenshots/counter-progress.jpeg" data-en-src="./assets/screenshots/counter-progress-eng.jpeg" alt="Knit Mark カウンター画面" />
-        </div>
-      </div>
+      <div class="hero-device hero-live" aria-label="Knit Mark app preview">
+<div class="hero-chart usage-pattern-chart"><svg viewBox="0 0 320 320" role="img" aria-label="Circular crochet chart" data-pattern-chart></svg></div>
+<div class="hero-counter" data-demo-mode="pattern">
+<div class="hero-app-header"><span>‹</span><b data-ja="コースター" data-en="Coaster">コースター</b><span></span></div>
+<div class="hero-app-actions"><span class="hero-app-round"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h4l5-4v14l-5-4H3zM16 8a6 6 0 0 1 0 8M19 5a10 10 0 0 1 0 14"/></svg></span><span class="hero-app-progress" data-ja="途中を記録" data-en="Save Progress">途中を記録</span><button class="hero-app-round" data-demo-action="undo" aria-label="Undo">↶</button></div>
+<div class="hero-app-card hero-app-memo"><b data-ja="メモ" data-en="Note">メモ</b><span>›</span><small data-ja="メモはまだありません" data-en="No note yet">メモはまだありません</small></div>
+<div class="hero-app-card hero-app-history"><b data-ja="最近の履歴" data-en="Recent History">最近の履歴</b><span>›</span><div data-demo-history></div></div>
+<div class="hero-app-count"><div class="hero-app-value"><strong data-demo-value="row">0</strong><span data-ja="段" data-en="Rows">段</span><span class="hero-app-mark">│→</span></div><button data-demo-action="row" aria-label="Add row">＋</button></div>
+<div class="hero-app-count hero-app-stitch"><div class="hero-app-value"><strong data-demo-value="stitch">0</strong><span data-ja="目" data-en="Stitches">目</span><span class="hero-app-mark">│→</span></div><button data-demo-action="stitch" aria-label="Add stitch">＋</button></div>
+</div></div>
     </section>
 
     <section class="section-heading how-heading">
@@ -205,5 +210,6 @@
   </footer>
 
   <script src="./script.js"></script>
+  <script src="./hero-demo.js?v=1"></script>
 </body>
 </html>
