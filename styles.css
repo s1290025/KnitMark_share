@@ -1910,3 +1910,11 @@ footer p{margin:14px 0 0}
 .usage-button-step-reverse>.usage-counter-demo{pointer-events:auto}
 .usage-button-step .usage-copy p{font-size:clamp(16px,2.5vw,21px)}
 @media(max-width:560px){.usage-button-pair{min-height:0;display:grid;grid-template-columns:1fr 1fr;gap:12px}.usage-button-step,.usage-button-step-reverse{position:static;width:auto;display:flex;flex-direction:column;gap:10px;pointer-events:auto}.usage-button-step-reverse{flex-direction:column-reverse;margin-top:32px}.usage-button-step>.usage-copy,.usage-button-step-reverse>.usage-copy{padding:0;align-self:stretch}.usage-button-step .usage-copy p{font-size:15px}}
+
+/* Soft speech bubbles for the two counter explanations. */
+.usage-button-step>.usage-copy{position:relative;box-sizing:border-box;background:#fffdf9;border:1px solid #DED0C0;border-radius:16px;padding:13px 15px;margin-top:30px;align-self:start}
+.usage-button-step>.usage-copy::before{content:"";position:absolute;left:-6px;top:20px;width:10px;height:10px;background:#fffdf9;border-left:1px solid #DED0C0;border-bottom:1px solid #DED0C0;transform:rotate(45deg)}
+.usage-button-step-reverse>.usage-copy{align-self:end;margin-top:0;margin-bottom:30px;padding:13px 15px}
+.usage-button-step-reverse>.usage-copy::before{left:auto;right:-6px;top:auto;bottom:20px;border:0;border-right:1px solid #DED0C0;border-top:1px solid #DED0C0}
+.usage-button-step .usage-copy p{font-size:15px;font-weight:400;line-height:1.85;color:#66574b;letter-spacing:.025em}
+@media(max-width:560px){.usage-button-step>.usage-copy,.usage-button-step-reverse>.usage-copy{margin:0;padding:10px 12px;align-self:stretch}.usage-button-step>.usage-copy::before,.usage-button-step-reverse>.usage-copy::before{left:50%;right:auto;top:-6px;bottom:auto;border:0;border-left:1px solid #DED0C0;border-top:1px solid #DED0C0;transform:translateX(-50%) rotate(45deg)}.usage-button-step .usage-copy p{font-size:14px}}
