@@ -1997,3 +1997,8 @@ footer p{margin:14px 0 0}
 @media(max-width:760px){.hero .hero-live{max-width:480px;margin:auto;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:12px}.hero-counter{max-width:230px}}
 @media(max-width:420px){.hero-counter{padding:8px 6px;gap:3px;border-radius:19px;aspect-ratio:390/850}.hero-app-header{height:21px}.hero-app-header b{font-size:10px}.hero-app-round{width:20px;height:20px;font-size:17px}.hero-app-round svg{width:12px}.hero-app-progress{height:20px;font-size:8px}.hero-app-card{padding:4px 5px;gap:2px}.hero-app-card b{font-size:9px}.hero-app-card small{font-size:8px}.hero-app-memo{height:33px}.hero-app-history{height:53px}.hero-app-history [data-demo-history]{grid-template-rows:repeat(2,13px)}.hero-app-history .usage-demo-history-line{height:13px;font-size:8px}.hero-app-mark{width:24px;height:18px;font-size:10px}.hero-app-value>span:not(.hero-app-mark){font-size:10px}}
 @media(prefers-reduced-motion:reduce){.hero-counter button{transition:none}}
+
+/* Gentle floating motion for the home phone preview. */
+.hero-live .hero-counter{transform:rotate(5deg);transform-origin:center center;animation:heroPhoneSway 6s ease-in-out infinite;will-change:transform}
+@keyframes heroPhoneSway{0%,100%{transform:translateY(0) rotate(4deg)}50%{transform:translateY(-7px) rotate(7deg)}}
+@media(prefers-reduced-motion:reduce){.hero-live .hero-counter{animation:none;transform:rotate(4deg);will-change:auto}}
