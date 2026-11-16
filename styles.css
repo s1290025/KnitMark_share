@@ -1966,3 +1966,6 @@ footer p{margin:14px 0 0}
 .usage-button-step .usage-copy p{font-family:inherit;letter-spacing:normal;font-weight:400;color:var(--text,#2b241e)}
 
 [data-demo-mode="flat-pattern"] .usage-demo-value{position:relative;width:100%;justify-content:center}[data-demo-mode="flat-pattern"] .usage-demo-value .usage-mark-button{position:absolute;right:0;top:50%;transform:translateY(-50%);width:38px;height:29px;border:1px solid #C9A77F;background:#EEE3D5;border-radius:9px;font-size:17px;line-height:1;color:#51453c;padding:0}[data-demo-mode="flat-pattern"] .usage-demo-value .usage-mark-button.is-pressed{background:#C9A77F;transform:translateY(-50%) scale(.92)}
+
+/* Both separator controls use the same compact rounded rectangle. */
+[data-demo-mode="flat-pattern"] .usage-demo-count .usage-demo-value button.usage-mark-button{width:38px;height:29px;min-height:0;min-width:0;border-radius:9px;font-size:17px;padding:0;flex:none;box-sizing:border-box}
