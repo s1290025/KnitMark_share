@@ -1929,3 +1929,11 @@ footer p{margin:14px 0 0}
 .usage-button-step-reverse>.usage-copy{grid-column:2;grid-row:2;align-self:end;margin:0 0 24px;padding:16px 18px}
 .usage-button-step .usage-copy p{font-size:clamp(16px,1.8vw,19px);font-weight:400;line-height:1.75;letter-spacing:normal;color:#2B241E;margin:0;overflow-wrap:break-word}
 @media(max-width:600px){.usage-page{padding-inline:14px}.usage-button-pair{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto auto;gap:12px}.usage-button-step>.usage-counter-demo{grid-column:1;grid-row:1;margin:0;justify-self:center}.usage-button-step-reverse>.usage-counter-demo{grid-column:2;grid-row:1;margin:24px 0 0;justify-self:center}.usage-button-step>.usage-copy{grid-column:1;grid-row:2;margin:0;padding:12px;align-self:start}.usage-button-step-reverse>.usage-copy{grid-column:2;grid-row:2;margin:0;padding:12px;align-self:start}.usage-button-step .usage-copy p{font-size:16px}.usage-button-step>.usage-copy::before,.usage-button-step-reverse>.usage-copy::before{left:50%;right:auto;top:-6px;bottom:auto;border:0;border-left:1px solid #DED0C0;border-top:1px solid #DED0C0;transform:translateX(-50%) rotate(45deg)}}
+
+/* Balanced guide width and matching screenshot frames. */
+.usage-button-pair{max-width:960px;margin-inline:auto;grid-template-columns:minmax(0,220px) minmax(0,1fr) minmax(0,220px);column-gap:20px;padding-inline:clamp(12px,3vw,36px)}
+.usage-button-step>.usage-counter-demo,.usage-button-step-reverse>.usage-counter-demo{max-width:220px;border:0;outline:2px solid #b9ada1;outline-offset:0;border-radius:24px;box-shadow:0 8px 20px rgba(45,38,32,.07);overflow:hidden}
+.usage-button-step>.usage-copy{width:fit-content;max-width:100%;justify-self:start;background:#fffdf9}
+.usage-button-step-reverse>.usage-copy{justify-self:end}
+.usage-button-step .usage-copy p{font-family:"Hiragino Maru Gothic ProN","Hiragino Sans","Yu Gothic",sans-serif;font-size:clamp(16px,1.8vw,18px);font-weight:400;color:#51453c;line-height:1.85}
+@media(max-width:600px){.usage-button-pair{grid-template-columns:repeat(2,minmax(0,1fr));padding-inline:6px;column-gap:14px}.usage-button-step>.usage-copy,.usage-button-step-reverse>.usage-copy{width:100%;justify-self:stretch}.usage-button-step .usage-copy p{font-size:16px}}
