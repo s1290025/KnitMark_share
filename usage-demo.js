@@ -65,9 +65,9 @@ document.querySelectorAll('.usage-counter-demo:not([data-demo-mode="pattern"]):n
  const steps=[];
  const add=(action,mark=null)=>steps.push({action,mark});
  rounds[0].forEach(m=>add('stitch',m));add('mark-stitch');
- for(let i=1;i<=3;i++){add('highlight',turns[i-1]);if(i>1)add('row');rounds[i].forEach(m=>add('highlight',m));}
+ for(let i=1;i<=3;i++){add('highlight',turns[i-1]);rounds[i].forEach(m=>add('highlight',m));add('row');}
  // The next turning chain starts the decorative edge.
- add('highlight',turns[3]);add('row');add('mark-row');
+ add('highlight',turns[3]);add('mark-row');
  for(let i=0;i<12;i+=4){for(let k=0;k<3;k++)add('stitch',rounds[4][i+k]);add('mark-stitch');add('highlight',rounds[4][i+3]);}
  const all=[...rounds.flat(),...turns];
  let r=0,s=0,entries=[],completed=[],active=null,index=0,stack=[],timer,visible=false,touched=false;
