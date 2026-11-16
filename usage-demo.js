@@ -65,14 +65,14 @@ document.querySelectorAll('.usage-counter-demo:not([data-demo-mode="pattern"]):n
  const steps=[];
  const add=(action,mark=null)=>steps.push({action,mark});
  rounds[0].forEach(m=>add('stitch',m));add('mark-stitch');
- for(let i=1;i<=3;i++){add('highlight',turns[i-1]);if(i>1)add('row');rounds[i].forEach(m=>add('stitch',m));}
+ for(let i=1;i<=3;i++){add('highlight',turns[i-1]);if(i>1)add('row');rounds[i].forEach(m=>add('highlight',m));}
  // The next turning chain starts the decorative edge.
  add('highlight',turns[3]);add('row');add('mark-row');
  for(let i=0;i<12;i+=4){for(let k=0;k<3;k++)add('stitch',rounds[4][i+k]);add('mark-stitch');add('highlight',rounds[4][i+3]);}
  const all=[...rounds.flat(),...turns];
  let r=0,s=0,entries=[],completed=[],active=null,index=0,stack=[],timer,visible=false,touched=false;
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
- function render(){row.textContent=r;stitch.textContent=s;all.forEach(m=>m.setAttribute('class','pattern-mark '+(m===active?'is-current':completed.includes(m)?'is-done':'')));const en=document.documentElement.lang==='en';history.replaceChildren(...entries.slice(-2).map(e=>{const d=document.createElement('div');d.className='usage-demo-history-line';d.textContent=(en?e.r+' rows · '+e.s+' stitches':e.r+'段 '+e.s+'目')+(e.mark?' │→':'');return d;}));}
+ function render(){row.textContent=r;stitch.textContent=s;all.forEach(m=>m.setAttribute('class','pattern-mark '+(m===active?'is-current':completed.includes(m)?'is-done':'')));const en=document.documentElement.lang==='en';history.replaceChildren(...entries.slice(-2).map(e=>{const d=document.createElement('div');d.className='usage-demo-history-line';d.textContent=(en?e.r+' rows · '+e.s+' stitches':e.r+'段 '+e.s+'目');return d;}));}
  function act(a){if(a==='undo'){if(stack.length){({r,s,entries,completed,active,index}=stack.pop());}}else{const step=steps[index];if(!step||step.action!==a)return;stack.push({r,s,entries,completed,active,index});index++;active=step.mark;if(active)completed=[...completed,active];if(a==='stitch')s++;if(a==='row'||a==='mark-row'||a==='mark-stitch'){if(s||a==='mark-row')entries=[...entries,{r,s,mark:a!=='row'}];s=0;if(a==='row')r++;if(a==='mark-row')r=0;}}
  const b=buttons.find(b=>b.dataset.demoAction===a);if(b){b.classList.add('is-pressed');setTimeout(()=>b.classList.remove('is-pressed'),220);}render();}
  function tick(){if(!visible||touched||reduced.matches)return;if(index===steps.length){r=0;s=0;entries=[];completed=[];active=null;index=0;stack=[];render();}else act(steps[index].action);timer=setTimeout(tick,index===steps.length?2200:steps[index-1]?.action?.startsWith('mark')?1100:700);}
