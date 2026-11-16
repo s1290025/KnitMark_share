@@ -20,26 +20,25 @@ document.querySelectorAll('.usage-counter-demo:not([data-demo-mode="pattern"])')
  const demo=document.querySelector('[data-demo-mode="pattern"]'), svg=document.querySelector('[data-pattern-chart]');if(!demo||!svg)return;
  const ns='http://www.w3.org/2000/svg', marks=[], groups=[];
  function el(tag,attrs,parent){const e=document.createElementNS(ns,tag);Object.entries(attrs).forEach(([k,v])=>e.setAttribute(k,v));parent.append(e);return e;}
- el('circle',{cx:160,cy:160,r:14,fill:'none',stroke:'#51453c','stroke-width':2},svg);
- const sizes=[6,12,18], radii=[40,83,128];
- // Each group is anchored to the stitch in the previous round.
- // Work counterclockwise, beginning at the top of each round.
- const parents=[[],Array.from({length:6},(_,i)=>i),Array.from({length:12},(_,i)=>i)];
- const positions=[];
- function cross(x,y,angle){const anchor=el('g',{transform:'translate('+x+' '+y+') rotate('+angle+')'},svg);const m=el('g',{class:'pattern-mark'},anchor);el('path',{d:'M-6 0 H6 M0 -8 V8',fill:'none','stroke-linecap':'round'},m);marks.push(m);return m;}
+ el('circle',{cx:160,cy:160,r:15,fill:'none',stroke:'#51453c','stroke-width':1.8},svg);
+ const sizes=[6,12,18], radii=[39,79,121];
  function point(a,r){return [160-Math.sin(a)*r,160-Math.cos(a)*r];}
+ function cross(x,y,a){const anchor=el('g',{transform:'translate('+x+' '+y+') rotate('+(-a*180/Math.PI)+')'},svg);const m=el('g',{class:'pattern-mark'},anchor);el('path',{d:'M-6 0 H6 M0 -7 V7',fill:'none','stroke-linecap':'round'},m);marks.push(m);}
+ // Regular concentric rounds; paired crosses share a single V-shaped base.
  for(let r=0;r<3;r++){
- const n=sizes[r], prev=r?positions[r-1]:[], angles=[];
- if(!r){for(let j=0;j<n;j++){const a=j*2*Math.PI/n;const [x,y]=point(a,radii[r]);cross(x,y,-a*180/Math.PI);angles.push(a);}}
- else{for(let j=0;j<prev.length;j++){
- const a=prev[j], inc=r===1||j%2===1, spread=r===1?Math.PI/12:Math.PI/18;
- if(inc){const [bx,by]=point(a,radii[r-1]+11),[lx,ly]=point(a-spread,radii[r]-9),[rx,ry]=point(a+spread,radii[r]-9);
- const join=el('path',{d:'M'+lx+' '+ly+' L'+bx+' '+by+' L'+rx+' '+ry,fill:'none',stroke:'#302c29','stroke-width':1.5,'stroke-linecap':'round',class:'pattern-join'},svg);
- const first=marks.length;groups.push({join,first,last:first+1});
- for(const b of [a-spread,a+spread]){const [x,y]=point(b,radii[r]);cross(x,y,-b*180/Math.PI);angles.push(b);}
- }else{const [x,y]=point(a,radii[r]);cross(x,y,-a*180/Math.PI);angles.push(a);}
- }}
- positions.push(angles);
+ const n=sizes[r], step=2*Math.PI/n;
+ const offset=r===0?0:r===1?-step/2:-step;
+ for(let i=0;i<n;){
+ const inc=r===1||(r===2&&i%3===1);
+ if(inc){
+ const a=offset+(i+.5)*step, [bx,by]=point(a,radii[r]-25);
+ const [lx,ly]=point(offset+i*step,radii[r]-7),[rx,ry]=point(offset+(i+1)*step,radii[r]-7);
+ const join=el('path',{d:'M'+lx+' '+ly+' L'+bx+' '+by+' L'+rx+' '+ry,fill:'none',stroke:'#302c29','stroke-width':1.7,'stroke-linecap':'round','stroke-linejoin':'round',class:'pattern-join'},svg);
+ groups.push({join,first:marks.length,last:marks.length+1});
+ for(let k=0;k<2;k++){const b=offset+(i+k)*step,[x,y]=point(b,radii[r]);cross(x,y,b);}
+ i+=2;
+ }else{const a=offset+i*step,[x,y]=point(a,radii[r]);cross(x,y,a);i++;}
+ }
  }
  const buttons=[...demo.querySelectorAll('[data-demo-action]')], row=demo.querySelector('[data-demo-value="row"]'), stitch=demo.querySelector('[data-demo-value="stitch"]'), history=demo.querySelector('[data-demo-history]');
  let r=0,s=0,done=0,entries=[],stack=[],timer,visible=false,touched=false;
