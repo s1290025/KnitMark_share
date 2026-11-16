@@ -1884,9 +1884,9 @@ footer p{margin:14px 0 0}
 
 .usage-buttons .usage-copy p{font-size:clamp(17px,2.5vw,25px);line-height:1.8;color:#2B241E;font-weight:500;overflow-wrap:anywhere}
 
-.usage-button-pair{max-width:760px;margin:auto;padding:32px 0 48px;display:grid;gap:12px}
-.usage-button-step{display:grid;grid-template-columns:minmax(0,190px) minmax(0,240px);gap:20px;align-items:center;justify-content:start}
-.usage-button-step-reverse{grid-template-columns:minmax(0,240px) minmax(0,190px);justify-content:end}
+.usage-button-pair{max-width:560px;margin:auto;padding:24px 0 32px;display:grid;gap:8px}
+.usage-button-step{display:grid;grid-template-columns:minmax(0,170px) minmax(0,1fr);gap:16px;align-items:center;margin-right:32px}
+.usage-button-step-reverse{grid-template-columns:minmax(0,1fr) minmax(0,170px);margin-right:0;margin-left:32px}
 .usage-button-step .usage-copy p{font-size:clamp(16px,2vw,21px);line-height:1.75;color:#2B241E;font-weight:500}
 .usage-button-pair .usage-counter-demo{width:100%;padding:10px 12px 14px;gap:6px;border-radius:18px}
 .usage-demo-top{display:flex;justify-content:flex-end}
@@ -1896,4 +1896,7 @@ footer p{margin:14px 0 0}
 .usage-button-pair .usage-demo-count button{height:54px;font-size:34px;border-radius:20px}
 .usage-button-pair .usage-demo-count:last-child button{height:60px;border-radius:999px}
 .usage-button-pair .usage-demo-history{height:88px}
-@media(max-width:560px){.usage-button-step{grid-template-columns:minmax(0,145px) minmax(0,1fr);gap:12px}.usage-button-step-reverse{grid-template-columns:minmax(0,1fr) minmax(0,145px)}.usage-button-pair{gap:18px}.usage-button-pair .usage-counter-demo{padding:8px}.usage-button-pair .usage-copy p{font-size:16px}}
+@media(max-width:560px){.usage-button-step{grid-template-columns:minmax(0,145px) minmax(0,1fr);gap:12px}.usage-button-step-reverse{grid-template-columns:minmax(0,1fr) minmax(0,145px)}.usage-button-pair{gap:8px}.usage-button-step{margin-right:12px}.usage-button-step-reverse{margin-right:0;margin-left:12px}.usage-button-pair .usage-counter-demo{padding:8px}.usage-button-pair .usage-copy p{font-size:16px}}
+
+@media(min-width:561px){.usage-button-step-reverse{margin-top:-34px}.usage-button-step .usage-copy{align-self:start;padding-top:34px}.usage-button-step-reverse .usage-copy{align-self:end;padding-top:0;padding-bottom:34px}}
+@media(max-width:360px){.usage-button-step,.usage-button-step-reverse{margin-left:0;margin-right:0;gap:10px}.usage-button-step{grid-template-columns:minmax(0,125px) minmax(0,1fr)}.usage-button-step-reverse{grid-template-columns:minmax(0,1fr) minmax(0,125px)}}
