@@ -2002,3 +2002,8 @@ footer p{margin:14px 0 0}
 .hero-live .hero-counter{transform:rotate(5deg);transform-origin:center center;animation:heroPhoneSway 6s ease-in-out infinite;will-change:transform}
 @keyframes heroPhoneSway{0%,100%{transform:translateY(0) rotate(4deg)}50%{transform:translateY(-7px) rotate(7deg)}}
 @media(prefers-reduced-motion:reduce){.hero-live .hero-counter{animation:none;transform:rotate(4deg);will-change:auto}}
+
+/* Fine-tune the home preview placement without changing its animation. */
+.hero .hero-live{top:24px}
+.hero-live .hero-chart{transform:translateX(-18px)}
+@media(max-width:760px){.hero .hero-live{top:14px}.hero-live .hero-chart{transform:translateX(-8px)}}
